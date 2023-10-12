@@ -1,4 +1,5 @@
 import * as Type from "../types";
+import { borderType } from "../types";
 
 const myLovelyImage: Type.ImageContent = {
   id: 1,
@@ -52,7 +53,7 @@ const circle1: Type.Primitive = {
   opacity: 3,
   rotate: 3,
   type: "Circle",
-  border: dL,
+  border: borderType.solidLine,
   borderColor: "blue",
   borderSize: 3,
   borderBold: 3,
@@ -68,7 +69,7 @@ const triangle1: Type.Primitive = {
   opacity: 4,
   rotate: 4,
   type: "Triangle",
-  border: fDL,
+  border: borderType.dottedLine,
   borderColor: "blue",
   borderSize: 4,
   borderBold: 4,

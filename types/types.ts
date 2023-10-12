@@ -1,22 +1,22 @@
-type ImageContent = SlideDatas & {
+type imageContent = slideDatas & {
   type: "image";
   imageSrc: "imageLink" | "imagebase64";
   pathImage: string;
 };
 
-type TextContent = SlideDatas & {
+type textContent = slideDatas & {
   type: "text";
   text: Array<string>;
   fontFamily: string;
   fontSize: number;
   fontColor: string;
-  fоntBold: boolean;
+  fontBold: boolean;
   fontItalica: boolean;
   underline: boolean;
   fontStrikeThrough: boolean;
 };
 
-type SlideDatas = {
+type slideDatas = {
   id: number;
   x: number;
   y: number;
@@ -26,11 +26,11 @@ type SlideDatas = {
   rotate?: number; //можно крутить по разным осям
 };
 
-type BackColor = {
+type backColor = {
   color: string; //если узнаем, как делается градиент, то добавим
 };
 
-type BackImage = {
+type backImage = {
   imageSrc: "imageLink" | "imagebase64";
   pathImage: string;
 };
@@ -41,8 +41,13 @@ enum borderType {
   fineDottedLine = "fDL",
   waveUnderlining = "wU",
 }
-
-type Primitive = SlideDatas & {
+type Hello = {
+  fd: borderType.solidLine;
+  dL: borderType.dottedLine;
+  ds: borderType.fineDottedLine;
+  du: borderType.waveUnderlining;
+};
+type primitive = slideDatas & {
   type: "Triangle" | "Circle" | "Rectangle";
   border: borderType;
   borderColor: string;
@@ -51,45 +56,49 @@ type Primitive = SlideDatas & {
   fillColor: string;
 };
 
-type Slide = {
+type slide = {
   id: number;
-  background?: BackColor | BackImage;
-  slideObject: Array<TextContent | ImageContent | Primitive>;
+  background?: backColor | backImage;
+  slideObject: Array<textContent | imageContent | primitive>;
 };
 
-type Presentation = {
+type presentation = {
   name: string;
-  slides: Array<Slide>;
+  presentationSlides: Array<slide>;
 };
 
-type Operation = {
+type operation = {
   id: number;
-  type: "";
-  prev: Operation | null;
-  next: Operation | null;
+  type: object;
+  prev: operation | null;
+  next: operation | null;
 };
 
-type OperHistory = {};
+type operHistory = {
+  allOperation: operation;
+  id: number;
+};
 
-type Selected = {
-  slides: Array<number>;
+type selected = {
+  selectedSlides: Array<number>;
   objects: Array<number>;
 };
 
-type Editor = {
-  presentation: Presentation;
-  selection: Selected;
+type editor = {
+  epresentation: presentation;
+  selection: selected;
 };
 
 export {
-  ImageContent,
-  TextContent,
-  SlideDatas,
-  BackColor,
-  BackImage,
-  Primitive,
-  Slide,
-  Presentation,
-  OperHistory,
-  Editor,
+  imageContent,
+  textContent,
+  slideDatas,
+  backColor,
+  backImage,
+  borderType,
+  primitive,
+  slide,
+  presentation,
+  operHistory,
+  editor,
 };
