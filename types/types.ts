@@ -1,3 +1,21 @@
+//BaseElementType
+//все типы с заглавной буквы
+//ImageType вместо imageSrc
+//font - убрать
+//Italic instead og italica
+//underline in TextContent
+//type: "Triangle@"
+//selectedslide uid
+//поле тип картинка или цвет в BackImage
+
+
+
+enum setting {
+  "Triangle",
+  "Circle",
+  "Rectangle"
+};
+
 type imageContent = slideDatas & {
   type: "image";
   imageSrc: "imageLink" | "imagebase64";
