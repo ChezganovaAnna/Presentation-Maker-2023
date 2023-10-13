@@ -1,6 +1,6 @@
 import * as Type from "../types";
 
-const presentation: Type.presentation = {
+const presentation: Type.Presentation = {
   name: "",
   presentationSlides: [],
 };

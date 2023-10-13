@@ -1,119 +1,123 @@
 import * as Type from "../types";
+import {PrimitiveType} from "../types";
+import {v4 as uuidv4} from "uuid";
 
-const myLovelyImage: Type.imageContent = {
-  id: 1,
-  x: 1,
-  y: 1,
-  height: 1,
-  width: 1,
-  opacity: 1,
-  rotate: 1,
+const myLovelyImage: Type.ImageContent = {
+  id: "1",
+  x: 85,
+  y: 45,
+  height: 158,
+  width: 145,
+  opacity: 50,
+  rotate: 175,
   type: "image",
-  imageSrc: "imageLink",
-  pathImage:
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/140-P1020281_-_Flickr_-_Laurie_Nature_Bee.jpg/1280px-140-P1020281_-_Flickr_-_Laurie_Nature_Bee.jpg",
+  imageType: "imageLink",
+  pathImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/140-P1020281_-_Flickr_-_Laurie_Nature_Bee.jpg/1280px-140-P1020281_-_Flickr_-_Laurie_Nature_Bee.jpg",
 };
 
-const textCont: Type.textContent = {
-  id: 2,
-  x: 2,
-  y: 2,
-  height: 2,
-  width: 2,
-  opacity: 2,
-  rotate: 2,
+const textCont: Type.TextContent = {
+  id: "2",
+  x: 85,
+  y: 24,
+  height: 202,
+  width: 74,
+  opacity: 85,
+  rotate: 90,
   type: "text",
-  text: ["2, 22, 222, 2222"],
+  text: "2, 22, 222, 2222",
   fontFamily: "Arial",
   fontSize: 20,
-  fontColor: "black",
-  fontBold: true,
-  fontItalica: true,
-  underline: true,
-  fontStrikeThrough: true,
-};
-
-const backLandscape: Type.backColor = {
   color: "black",
+  bold: true,
+  italic: true,
+  strikeThrough: true,
+  underline: true,
 };
 
-const backLandscape2: Type.backImage = {
-  imageSrc: "imageLink",
-  pathImage:
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/140-P1020281_-_Flickr_-_Laurie_Nature_Bee.jpg/1280px-140-P1020281_-_Flickr_-_Laurie_Nature_Bee.jpg",
+const backLandscape: Type.BackColor = {
+  type: "color",
+  color: "black",
+  pathImage: "R0lGODlhBwAKAMIEAICAgJmZmbOzs/f39////////////////yH5BAEKAAcALAAAAAAHAAoAAAMWSDPUGoE5AaIj1M4qMW+ZFDYD1ClnAgA7",
+};
+//вопрос
+const backLandscape2: Type.BackImage = {
+  type: "image",
+  imageType: "imageLink",
+  pathImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/140-P1020281_-_Flickr_-_Laurie_Nature_Bee.jpg/1280px-140-P1020281_-_Flickr_-_Laurie_Nature_Bee.jpg",
 };
 
-const circle1: Type.primitive = {
-  id: 3,
-  x: 3,
-  y: 3,
-  height: 3,
-  width: 3,
-  opacity: 3,
-  rotate: 3,
-  type: "Circle",
+const circle1: Type.Primitive = {
+  id: "3",
+  x: 745,
+  y: 745,
+  height: 96,
+  width: 85,
+  opacity: 87,
+  rotate: 45,
+  type: PrimitiveType.CIRCLE,
   borderColor: "blue",
-  primitiveX: 3,
-  primitiveY: 3,
-  borderBold: 3,
+  primitiveX: 74,
+  primitiveY: 56,
+  borderBold: 74,
   fillColor: "grey",
 };
 
-const triangle1: Type.primitive = {
-  id: 4,
-  x: 4,
-  y: 4,
-  height: 4,
-  width: 4,
-  opacity: 4,
-  rotate: 4,
-  type: "Triangle",
+const triangle1: Type.Primitive = {
+  id: "8",
+  x: 95,
+  y: 85,
+  height: 85,
+  width: 74,
+  opacity: 74,
+  rotate: 54,
+  type: PrimitiveType.TRIANGLE,
   borderColor: "blue",
-  primitiveX: 4,
-  primitiveY: 4,
-  borderBold: 4,
+  primitiveX: 45,
+  primitiveY: 45,
+  borderBold: 46,
   fillColor: "grey",
 };
 
-const rectangle1: Type.primitive = {
-  id: 5,
-  x: 5,
-  y: 5,
-  height: 5,
-  width: 5,
-  opacity: 5,
-  rotate: 5,
-  type: "Rectangle",
+const rectangle1: Type.Primitive = {
+  id: "4",
+  x: 74,
+  y: 54,
+  height: 55,
+  width: 56,
+  opacity: 56,
+  rotate: 55,
+  type: PrimitiveType.RECTANGLE,
   borderColor: "blue",
-  primitiveX: 5,
-  primitiveY: 5,
-  borderBold: 5,
+  primitiveX: 544,
+  primitiveY: 54,
+  borderBold: 54,
   fillColor: "grey",
 };
 
-const slides1: Type.slide = {
-  idSlide: 1,
+const slides1: Type.Slide = {
+  idSlide: "5",
   background: backLandscape,
   slideObject: [myLovelyImage, textCont, circle1, rectangle1, triangle1],
 };
 
-const slides2: Type.slide = {
-  idSlide: 2,
+
+const slides2: Type.Slide = {
+  idSlide: "6",
   background: backLandscape2,
   slideObject: [textCont, circle1],
 };
 
-const myPresentation: Type.presentation = {
+const myPresentation: Type.Presentation = {
   name: "myPresent",
   presentationSlides: [slides1, slides2],
 };
 
-const selectionInPresentation: Type.selected = {
-  selectedSlides: [1],
-  selectedObjects: [1, 2, 3, 4, 5],
+const selectionInPresentation: Type.Selected = {
+  selectedSlides: "5",
+  selectedObjects: ["1", "2"],
 };
 
-const editor: Type.editor = {
+const editor: Type.Editor = {
   editorPresentation: myPresentation,
   selection: selectionInPresentation,
 };

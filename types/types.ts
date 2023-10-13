@@ -1,42 +1,61 @@
-type imageContent = slideDatas & {
+//все типы с заглавной буквы ++
+// ImageType вместо imageSrc ++
+//font - убрать ++
+// Italic instead og italica ++
+//underline in TextContent ++
+// type: "Triangle@" ++
+//selectedslide uid//поле тип картинка или цвет в BackImage
+
+
+type ImageContent = BaseElementType & {
   type: "image";
-  imageSrc: "imageLink" | "imagebase64";
+  imageType: "imageLink" | "imagebase64";
   pathImage: string;
 };
 
-type textContent = slideDatas & {
+type TextContent = BaseElementType & {
   type: "text";
-  text: Array<string>;
+  text: string;
   fontFamily: string;
   fontSize: number;
-  fontColor: string;
-  fontBold: boolean;
-  fontItalica: boolean;
-  fontStrikeThrough: boolean;
+  color: string; //убрали font
+  bold: boolean;
+  italic: boolean;
+  strikeThrough: boolean;
+  underline: boolean;
 };
 
-type slideDatas = {
-  id: number;
+type BaseElementType = {
+  id: string;
   x: number;
   y: number;
   height: number;
   width: number;
   opacity?: number;
   rotate?: number; //можно крутить по разным осям
-  underline?: boolean;
 };
 
-type backColor = {
+type BackColor = {
+  type: "color";
   color: string; //если узнаем, как делается градиент, то добавим
 };
 
-type backImage = {
-  imageSrc: "imageLink" | "imagebase64";
+type BackImage = {
+  type: "image";
+  imageType: "imageLink" | "imagebase64";
   pathImage: string;
 };
 
-type primitive = slideDatas & {
-  type: "Triangle" | "Circle" | "Rectangle";
+
+
+enum PrimitiveType {
+  TRIANGLE = "Triangle",
+  CIRCLE = "Circle",
+  RECTANGLE = "Rectangle"
+}
+
+type Primitive = BaseElementType & {
+  type: PrimitiveType;
   borderColor: string;
   primitiveX: number;
   primitiveY: number;
@@ -44,48 +63,49 @@ type primitive = slideDatas & {
   fillColor: string;
 };
 
-type operation = {
+type Operation = {
   data: object;
-  idOperation: number;
-  prevOperation: operation | null;
-  nextOperation: operation | null;
+  idOperation: string;
+  prevOperation: Operation | null;
+  nextOperation: Operation | null;
 };
 
-type operHistory = {
-  allOperation: operation;
+type OperHistory = {
+  allOperation: Operation;
 };
 
-type selected = {
-  selectedSlides: Array<number>;
-  selectedObjects: Array<number>;
+type Selected = {
+  selectedSlides: string;
+  selectedObjects: Array<string>;
 };
 
-type slide = {
-  idSlide: number;
-  background?: backColor | backImage;
-  slideObject: Array<textContent | imageContent | primitive>;
+type Slide = {
+  idSlide: string;
+  background: BackImage|BackColor;
+  slideObject: Array<TextContent | ImageContent | Primitive>;
 };
 
-type presentation = {
+type Presentation = {
   name: string;
-  presentationSlides: Array<slide>;
+  presentationSlides: Array<Slide>;
 };
 
-type editor = {
-  editorPresentation: presentation;
-  selection: selected;
+type Editor = {
+  editorPresentation: Presentation;
+  selection: Selected;
 };
 
 export {
-  imageContent,
-  textContent,
-  slideDatas,
-  backColor,
-  backImage,
-  primitive,
-  slide,
-  selected,
-  presentation,
-  operHistory,
-  editor,
+  ImageContent,
+  TextContent,
+  BaseElementType,
+  BackColor,
+  BackImage,
+  PrimitiveType,
+  Primitive,
+  Slide,
+  Selected,
+  Presentation,
+  OperHistory,
+  Editor,
 };

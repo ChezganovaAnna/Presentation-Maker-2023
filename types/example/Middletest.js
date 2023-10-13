@@ -1,86 +1,91 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-//нет opacity и rotate
-var myLovelyImage1 = {
-  id: 1,
-  x: 1,
-  y: 1,
-  height: 1,
-  width: 1,
-  type: "image",
-  imageSrc: "imageLink",
-  pathImage:
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/140-P1020281_-_Flickr_-_Laurie_Nature_Bee.jpg/1280px-140-P1020281_-_Flickr_-_Laurie_Nature_Bee.jpg",
-};
-//нет opacity
-var myLovelyImage2 = {
-  id: 6,
-  x: 6,
-  y: 6,
-  height: 6,
-  width: 6,
-  rotate: 6,
-  type: "image",
-  imageSrc: "imageLink",
-  pathImage:
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/140-P1020281_-_Flickr_-_Laurie_Nature_Bee.jpg/1280px-140-P1020281_-_Flickr_-_Laurie_Nature_Bee.jpg",
-};
-//нет rotate
-var myLovelyImage3 = {
-  id: 7,
-  x: 7,
-  y: 7,
-  height: 7,
-  width: 7,
-  opacity: 0,
-  type: "image",
-  imageSrc: "imageLink",
-  pathImage:
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/140-P1020281_-_Flickr_-_Laurie_Nature_Bee.jpg/1280px-140-P1020281_-_Flickr_-_Laurie_Nature_Bee.jpg",
+var types_1 = require("../types");
+var myLovelyImage = {
+    id: "1",
+    x: 85,
+    y: 45,
+    height: 158,
+    width: 145,
+    type: "image",
+    imageType: "imagebase64",
+    pathImage: "R0lGODlhBwAKAMIEAICAgJmZmbOzs/f39////////////////yH5BAEKAAcALAAAAAAHAAoAAAMWSDPUGoE5AaIj1M4qMW+ZFDYD1ClnAgA7",
 };
 var textCont = {
-  id: 2,
-  x: 2,
-  y: 2,
-  height: 2,
-  width: 2,
-  opacity: 2,
-  rotate: 2,
-  type: "text",
-  text: ["2, 22, 222, 2222"],
-  fontFamily: "Arial",
-  fontSize: 20,
-  fontColor: "black",
-  fоntBold: true,
-  fontItalica: true,
-  underline: true,
-  fontStrikeThrough: true,
+    id: "2",
+    x: 85,
+    y: 24,
+    height: 202,
+    width: 74,
+    type: "text",
+    text: "2, 22, 222, 2222",
+    fontFamily: "Arial",
+    fontSize: 20,
+    color: "black",
+    bold: false,
+    italic: false,
+    strikeThrough: false,
+    underline: false,
 };
 var backLandscape = {
-  color: "black",
+    type: "color",
+    color: "black",
 };
-var backLandscape2 = {
-  imageSrc: "imageLink",
-  pathImage:
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/140-P1020281_-_Flickr_-_Laurie_Nature_Bee.jpg/1280px-140-P1020281_-_Flickr_-_Laurie_Nature_Bee.jpg",
+var circle1 = {
+    id: "3",
+    x: 745,
+    y: 745,
+    height: 96,
+    width: 85,
+    type: types_1.PrimitiveType.CIRCLE,
+    borderColor: "blue",
+    primitiveX: 74,
+    primitiveY: 56,
+    borderBold: 74,
+    fillColor: "grey",
+};
+var triangle1 = {
+    id: "8",
+    x: 95,
+    y: 85,
+    height: 85,
+    width: 74,
+    opacity: 74,
+    rotate: 54,
+    type: types_1.PrimitiveType.TRIANGLE,
+    borderColor: "blue",
+    primitiveX: 45,
+    primitiveY: 45,
+    borderBold: 46,
+    fillColor: "grey",
+};
+var rectangle1 = {
+    id: "4",
+    x: 74,
+    y: 54,
+    height: 55,
+    width: 56,
+    type: types_1.PrimitiveType.RECTANGLE,
+    borderColor: "blue",
+    primitiveX: 544,
+    primitiveY: 54,
+    borderBold: 54,
+    fillColor: "grey",
 };
 var slides1 = {
-  id: 1,
-  background: {
-    imageSrc: "imageLink",
-    pathImage:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/140-P1020281_-_Flickr_-_Laurie_Nature_Bee.jpg/1280px-140-P1020281_-_Flickr_-_Laurie_Nature_Bee.jpg",
-  },
-  slideObject: [myLovelyImage1, textCont],
+    idSlide: "5",
+    background: backLandscape,
+    slideObject: [myLovelyImage, textCont, circle1, rectangle1, triangle1],
 };
 var myPresentation = {
-  name: "myPresent",
-  slides: [slides1],
+    name: "myPresent",
+    presentationSlides: [slides1],
+};
+var selectionInPresentation = {
+    selectedSlides: "5",
+    selectedObjects: [],
 };
 var editor = {
-  presentation: myPresentation,
-  selection: {
-    slides: [1],
-    objects: [1, 2, 3, 4, 5],
-  },
+    editorPresentation: myPresentation,
+    selection: selectionInPresentation,
 };

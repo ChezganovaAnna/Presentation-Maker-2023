@@ -1,95 +1,100 @@
 import * as Type from "../types";
+import {PrimitiveType} from "../types";
 
-//нет opacity и rotate
-const myLovelyImage1: Type.imageContent = {
-  id: 1,
-  x: 1,
-  y: 1,
-  height: 1,
-  width: 1,
+const myLovelyImage: Type.ImageContent = {
+  id: "9",
+  x: 65,
+  y: 78,
+  height: 154,
+  width: 845,
   type: "image",
-  imageSrc: "imageLink",
-  pathImage:
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/140-P1020281_-_Flickr_-_Laurie_Nature_Bee.jpg/1280px-140-P1020281_-_Flickr_-_Laurie_Nature_Bee.jpg",
+  imageType: "imagebase64",
+  pathImage: "R0lGODlhBwAKAMIEAICAgJmZmbOzs/f39////////////////yH5BAEKAAcALAAAAAAHAAoAAAMWSDPUGoE5AaIj1M4qMW+ZFDYD1ClnAgA7",
 };
 
-//нет opacity
-const myLovelyImage2: Type.imageContent = {
-  id: 6,
-  x: 6,
-  y: 6,
-  height: 6,
-  width: 6,
-  rotate: 6,
-  type: "image",
-  imageSrc: "imageLink",
-  pathImage:
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/140-P1020281_-_Flickr_-_Laurie_Nature_Bee.jpg/1280px-140-P1020281_-_Flickr_-_Laurie_Nature_Bee.jpg",
-};
-
-//нет rotate
-const myLovelyImage3: Type.imageContent = {
-  id: 7,
-  x: 7,
-  y: 7,
-  height: 7,
-  width: 7,
-  opacity: 0,
-  type: "image",
-  imageSrc: "imageLink",
-  pathImage:
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/140-P1020281_-_Flickr_-_Laurie_Nature_Bee.jpg/1280px-140-P1020281_-_Flickr_-_Laurie_Nature_Bee.jpg",
-};
-
-const textCont: Type.textContent = {
-  id: 2,
-  x: 2,
-  y: 2,
-  height: 2,
-  width: 2,
-  opacity: 2,
-  rotate: 2,
+const textCont: Type.TextContent = {
+  id: "11",
+  x: 85,
+  y: 24,
+  height: 202,
+  width: 74,
   type: "text",
-  text: ["2, 22, 222, 2222"],
+  text: "hello",
   fontFamily: "Arial",
-  fontSize: 20,
-  fontColor: "black",
-  fontBold: true,
-  fontItalica: true,
-  underline: true,
-  fontStrikeThrough: true,
+  fontSize: 24,
+  color: "black",
+  bold: false,
+  italic: false,
+  strikeThrough: false,
+  underline: false,
 };
 
-const backLandscape: Type.backColor = {
+const backLandscape: Type.BackColor = {
+  type: "color",
   color: "black",
 };
 
-const backLandscape2: Type.backImage = {
-  imageSrc: "imageLink",
-  pathImage:
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/140-P1020281_-_Flickr_-_Laurie_Nature_Bee.jpg/1280px-140-P1020281_-_Flickr_-_Laurie_Nature_Bee.jpg",
+const circle1: Type.Primitive = {
+  id: "15",
+  x: 745,
+  y: 745,
+  height: 96,
+  width: 85,
+  type: PrimitiveType.CIRCLE,
+  borderColor: "blue",
+  primitiveX: 74,
+  primitiveY: 56,
+  borderBold: 74,
+  fillColor: "grey",
 };
 
-const slides1: Type.slide = {
-  id: 1,
-  background: {
-    imageSrc: "imageLink",
-    pathImage:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/140-P1020281_-_Flickr_-_Laurie_Nature_Bee.jpg/1280px-140-P1020281_-_Flickr_-_Laurie_Nature_Bee.jpg",
-  },
-  slideObject: [myLovelyImage1, textCont],
+const triangle1: Type.Primitive = {
+  id: "19",
+  x: 145,
+  y: 140,
+  height: 100,
+  width: 345,
+  opacity: 84,
+  rotate: 65,
+  type: PrimitiveType.TRIANGLE,
+  borderColor: "blue",
+  primitiveX: 45,
+  primitiveY: 45,
+  borderBold: 46,
+  fillColor: "grey",
 };
 
-const myPresentation: Type.presentation = {
+const rectangle1: Type.Primitive = {
+  id: "78",
+  x: 50,
+  y: 50,
+  height: 62,
+  width: 74,
+  type: PrimitiveType.RECTANGLE,
+  borderColor: "blue",
+  primitiveX: 87,
+  primitiveY: 54,
+  borderBold: 54,
+  fillColor: "grey",
+};
+
+const slides1: Type.Slide = {
+  idSlide: "78",
+  background: backLandscape,
+  slideObject: [myLovelyImage, textCont, circle1, rectangle1, triangle1],
+};
+
+const myPresentation: Type.Presentation = {
   name: "myPresent",
   presentationSlides: [slides1],
 };
 
-const editor: Type.editor = {
-  //можно ли убрать тип выше
-  ePresentation: myPresentation,
-  selection: {
-    selectedSlides: [1],
-    objects: [1, 2, 3, 4, 5],
-  },
+const selectionInPresentation: Type.Selected = {
+  selectedSlides: "78",
+  selectedObjects: [],
+};
+
+const editor: Type.Editor = {
+  editorPresentation: myPresentation,
+  selection: selectionInPresentation,
 };
