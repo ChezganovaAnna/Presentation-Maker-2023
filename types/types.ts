@@ -12,7 +12,6 @@ type textContent = slideDatas & {
   fontColor: string;
   fontBold: boolean;
   fontItalica: boolean;
-  underline: boolean;
   fontStrikeThrough: boolean;
 };
 
@@ -24,6 +23,7 @@ type slideDatas = {
   width: number;
   opacity?: number;
   rotate?: number; //можно крутить по разным осям
+  underline?: boolean;
 };
 
 type backColor = {
@@ -35,29 +35,33 @@ type backImage = {
   pathImage: string;
 };
 
-enum borderType {
-  solidLine = "sL",
-  dottedLine = "dL",
-  fineDottedLine = "fDL",
-  waveUnderlining = "wU",
-}
-type Hello = {
-  fd: borderType.solidLine;
-  dL: borderType.dottedLine;
-  ds: borderType.fineDottedLine;
-  du: borderType.waveUnderlining;
-};
 type primitive = slideDatas & {
   type: "Triangle" | "Circle" | "Rectangle";
-  border: borderType;
+  border: boolean;
   borderColor: string;
   borderSize: number;
   borderBold: number;
   fillColor: string;
 };
 
+type operation = {
+  data: object;
+  idOperation: number;
+  prevOperation: operation | null;
+  nextOperation: operation | null;
+};
+
+type history = {
+  allOperation: operation;
+};
+
+type selected = {
+  selectedSlides: Array<number>;
+  selectedObjects: Array<number>;
+};
+
 type slide = {
-  id: number;
+  idSlide: number;
   background?: backColor | backImage;
   slideObject: Array<textContent | imageContent | primitive>;
 };
@@ -67,25 +71,8 @@ type presentation = {
   presentationSlides: Array<slide>;
 };
 
-type operation = {
-  id: number;
-  type: object;
-  prev: operation | null;
-  next: operation | null;
-};
-
-type operHistory = {
-  allOperation: operation;
-  id: number;
-};
-
-type selected = {
-  selectedSlides: Array<number>;
-  objects: Array<number>;
-};
-
 type editor = {
-  epresentation: presentation;
+  editorPresentation: presentation;
   selection: selected;
 };
 
@@ -95,10 +82,9 @@ export {
   slideDatas,
   backColor,
   backImage,
-  borderType,
   primitive,
   slide,
   presentation,
-  operHistory,
+  history,
   editor,
 };
