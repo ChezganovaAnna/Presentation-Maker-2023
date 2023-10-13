@@ -1,7 +1,7 @@
 import * as Type from "../types";
 
 //нет opacity и rotate
-const myLovelyImage1: Type.ImageContent = {
+const myLovelyImage1: Type.imageContent = {
   id: 1,
   x: 1,
   y: 1,
@@ -14,7 +14,7 @@ const myLovelyImage1: Type.ImageContent = {
 };
 
 //нет opacity
-const myLovelyImage2: Type.ImageContent = {
+const myLovelyImage2: Type.imageContent = {
   id: 6,
   x: 6,
   y: 6,
@@ -28,7 +28,7 @@ const myLovelyImage2: Type.ImageContent = {
 };
 
 //нет rotate
-const myLovelyImage3: Type.ImageContent = {
+const myLovelyImage3: Type.imageContent = {
   id: 7,
   x: 7,
   y: 7,
@@ -41,7 +41,7 @@ const myLovelyImage3: Type.ImageContent = {
     "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/140-P1020281_-_Flickr_-_Laurie_Nature_Bee.jpg/1280px-140-P1020281_-_Flickr_-_Laurie_Nature_Bee.jpg",
 };
 
-const textCont: Type.TextContent = {
+const textCont: Type.textContent = {
   id: 2,
   x: 2,
   y: 2,
@@ -54,23 +54,23 @@ const textCont: Type.TextContent = {
   fontFamily: "Arial",
   fontSize: 20,
   fontColor: "black",
-  fоntBold: true,
+  fontBold: true,
   fontItalica: true,
   underline: true,
   fontStrikeThrough: true,
 };
 
-const backLandscape: Type.BackColor = {
+const backLandscape: Type.backColor = {
   color: "black",
 };
 
-const backLandscape2: Type.BackImage = {
+const backLandscape2: Type.backImage = {
   imageSrc: "imageLink",
   pathImage:
     "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/140-P1020281_-_Flickr_-_Laurie_Nature_Bee.jpg/1280px-140-P1020281_-_Flickr_-_Laurie_Nature_Bee.jpg",
 };
 
-const slides1: Type.Slide = {
+const slides1: Type.slide = {
   id: 1,
   background: {
     imageSrc: "imageLink",
@@ -80,16 +80,16 @@ const slides1: Type.Slide = {
   slideObject: [myLovelyImage1, textCont],
 };
 
-const myPresentation: Type.Presentation = {
+const myPresentation: Type.presentation = {
   name: "myPresent",
-  slides: [slides1],
+  presentationSlides: [slides1],
 };
 
-const editor: Type.Editor = {
+const editor: Type.editor = {
   //можно ли убрать тип выше
-  presentation: myPresentation,
+  ePresentation: myPresentation,
   selection: {
-    slides: [1],
+    selectedSlides: [1],
     objects: [1, 2, 3, 4, 5],
   },
 };

@@ -1,7 +1,7 @@
 import * as Type from "../types";
 import { borderType } from "../types";
 
-const myLovelyImage: Type.ImageContent = {
+const myLovelyImage: Type.imageContent = {
   id: 1,
   x: 1,
   y: 1,
@@ -15,7 +15,7 @@ const myLovelyImage: Type.ImageContent = {
     "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/140-P1020281_-_Flickr_-_Laurie_Nature_Bee.jpg/1280px-140-P1020281_-_Flickr_-_Laurie_Nature_Bee.jpg",
 };
 
-const textCont: Type.TextContent = {
+const textCont: Type.textContent = {
   id: 2,
   x: 2,
   y: 2,
@@ -28,23 +28,23 @@ const textCont: Type.TextContent = {
   fontFamily: "Arial",
   fontSize: 20,
   fontColor: "black",
-  fоntBold: true,
+  fontBold: true,
   fontItalica: true,
   underline: true,
   fontStrikeThrough: true,
 };
 
-const backLandscape: Type.BackColor = {
+const backLandscape: Type.backColor = {
   color: "black",
 };
 
-const backLandscape2: Type.BackImage = {
+const backLandscape2: Type.backImage = {
   imageSrc: "imageLink",
   pathImage:
     "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/140-P1020281_-_Flickr_-_Laurie_Nature_Bee.jpg/1280px-140-P1020281_-_Flickr_-_Laurie_Nature_Bee.jpg",
 };
 
-const circle1: Type.Primitive = {
+const circle1: Type.primitive = {
   id: 3,
   x: 3,
   y: 3,
@@ -60,7 +60,7 @@ const circle1: Type.Primitive = {
   fillColor: "grey",
 };
 
-const triangle1: Type.Primitive = {
+const triangle1: Type.primitive = {
   id: 4,
   x: 4,
   y: 4,
@@ -76,7 +76,7 @@ const triangle1: Type.Primitive = {
   fillColor: "grey",
 };
 
-const rectangle1: Type.Primitive = {
+const rectangle1: Type.primitive = {
   id: 5,
   x: 5,
   y: 5,
@@ -85,14 +85,14 @@ const rectangle1: Type.Primitive = {
   opacity: 5,
   rotate: 5,
   type: "Rectangle",
-  border: sL,
+  border: borderType.waveUnderlining,
   borderColor: "blue",
   borderSize: 5,
   borderBold: 5,
   fillColor: "grey",
 };
 
-const slides1: Type.Slide = {
+const slides1: Type.slide = {
   id: 1,
   background: {
     imageSrc: "imageLink",
@@ -102,16 +102,18 @@ const slides1: Type.Slide = {
   slideObject: [myLovelyImage, textCont, circle1, rectangle1, triangle1],
 };
 
-const myPresentation: Type.Presentation = {
+const myPresentation: Type.presentation = {
   name: "myPresent",
-  slides: [slides1],
+  presentationSlides: [slides1],
 };
 
-const editor: Type.Editor = {
+const selectionInPresentation: Type.selected = {
+  selectedSlides: [1],
+  objects: [1, 2, 3, 4, 5],
+}
+
+const editor: Type.editor = {
   //можно ли убрать тип выше
-  presentation: myPresentation,
-  selection: {
-    slides: [1],
-    objects: [1, 2, 3, 4, 5],
-  },
+  ePresentation: myPresentation,
+  selection: selectionInPresentation
 };

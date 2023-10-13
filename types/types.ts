@@ -41,12 +41,7 @@ enum borderType {
   fineDottedLine = "fDL",
   waveUnderlining = "wU",
 }
-type Hello = {
-  fd: borderType.solidLine;
-  dL: borderType.dottedLine;
-  ds: borderType.fineDottedLine;
-  du: borderType.waveUnderlining;
-};
+
 type primitive = slideDatas & {
   type: "Triangle" | "Circle" | "Rectangle";
   border: borderType;
@@ -85,7 +80,7 @@ type selected = {
 };
 
 type editor = {
-  epresentation: presentation;
+  ePresentation: presentation;
   selection: selected;
 };
 
@@ -100,5 +95,6 @@ export {
   slide,
   presentation,
   operHistory,
+  selected,
   editor,
 };
