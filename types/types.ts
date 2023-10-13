@@ -37,9 +37,9 @@ type backImage = {
 
 type primitive = slideDatas & {
   type: "Triangle" | "Circle" | "Rectangle";
-  border: boolean;
   borderColor: string;
-  borderSize: number;
+  primitiveX: number;
+  primitiveY: number;
   borderBold: number;
   fillColor: string;
 };
@@ -51,7 +51,7 @@ type operation = {
   nextOperation: operation | null;
 };
 
-type history = {
+type operHistory = {
   allOperation: operation;
 };
 
@@ -84,7 +84,8 @@ export {
   backImage,
   primitive,
   slide,
+  selected,
   presentation,
-  history,
+  operHistory,
   editor,
 };
