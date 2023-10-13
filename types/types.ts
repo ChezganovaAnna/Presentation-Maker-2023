@@ -1,21 +1,3 @@
-//BaseElementType
-//все типы с заглавной буквы
-//ImageType вместо imageSrc
-//font - убрать
-//Italic instead og italica
-//underline in TextContent
-//type: "Triangle@"
-//selectedslide uid
-//поле тип картинка или цвет в BackImage
-
-
-
-enum setting {
-  "Triangle",
-  "Circle",
-  "Rectangle"
-};
-
 type imageContent = slideDatas & {
   type: "image";
   imageSrc: "imageLink" | "imagebase64";
@@ -30,7 +12,6 @@ type textContent = slideDatas & {
   fontColor: string;
   fontBold: boolean;
   fontItalica: boolean;
-  underline: boolean;
   fontStrikeThrough: boolean;
 };
 
@@ -42,6 +23,7 @@ type slideDatas = {
   width: number;
   opacity?: number;
   rotate?: number; //можно крутить по разным осям
+  underline?: boolean;
 };
 
 type backColor = {
@@ -53,24 +35,33 @@ type backImage = {
   pathImage: string;
 };
 
-enum borderType {
-  solidLine = "sL",
-  dottedLine = "dL",
-  fineDottedLine = "fDL",
-  waveUnderlining = "wU",
-}
-
 type primitive = slideDatas & {
   type: "Triangle" | "Circle" | "Rectangle";
-  border: borderType;
   borderColor: string;
-  borderSize: number;
+  primitiveX: number;
+  primitiveY: number;
   borderBold: number;
   fillColor: string;
 };
 
+type operation = {
+  data: object;
+  idOperation: number;
+  prevOperation: operation | null;
+  nextOperation: operation | null;
+};
+
+type operHistory = {
+  allOperation: operation;
+};
+
+type selected = {
+  selectedSlides: Array<number>;
+  selectedObjects: Array<number>;
+};
+
 type slide = {
-  id: number;
+  idSlide: number;
   background?: backColor | backImage;
   slideObject: Array<textContent | imageContent | primitive>;
 };
@@ -80,25 +71,8 @@ type presentation = {
   presentationSlides: Array<slide>;
 };
 
-type operation = {
-  id: number;
-  type: object;
-  prev: operation | null;
-  next: operation | null;
-};
-
-type operHistory = {
-  allOperation: operation;
-  id: number;
-};
-
-type selected = {
-  selectedSlides: Array<number>;
-  objects: Array<number>;
-};
-
 type editor = {
-  ePresentation: presentation;
+  editorPresentation: presentation;
   selection: selected;
 };
 
@@ -108,11 +82,10 @@ export {
   slideDatas,
   backColor,
   backImage,
-  borderType,
   primitive,
   slide,
+  selected,
   presentation,
   operHistory,
-  selected,
   editor,
 };
