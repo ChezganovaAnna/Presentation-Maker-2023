@@ -1,6 +1,91 @@
 import * as Type from "../types";
 import {PrimitiveType} from "../types";
 import {v4 as uuidv4} from "uuid";
+import * as React from 'React'
+
+const MyComponentsTestData: MyComponentProps[] = [
+  {
+    text: 'testComponent1',
+    color: 'red',
+    x: 10,
+    y: 10,
+  },
+  {
+    text: 'testComponent1',
+    color: 'red',
+    x: 10,
+    y: 10m
+  },
+  {
+    text: 'testComponent1',
+    color: 'red',
+    x: 10,
+    y: 10m
+  },
+  {
+    text: 'testComponent1',
+    color: 'red',
+    x: 10,
+    y: 10m
+  },
+  {
+    text: 'testComponent1',
+    color: 'red',
+    x: 10,
+    y: 10m
+  },
+]
+
+function MyPage() {
+
+  return (
+    <div>
+      {
+        MyComponentsTestData.map((item, index) => {
+
+          return (
+            <MyComponent
+              key={index}
+              text={item.text}
+              color={item.color}
+              x={item.x}
+              y={item.y}
+            />
+          )
+        })
+      }  
+    </div>
+  )
+}
+
+type MyComponentProps = {
+  className?: string,
+  text: string,
+  color: string,
+  x: number,
+  y: number,
+  onClick?: () => void,
+  onEdit?: (value: string) => void
+}
+
+function MyComponent(props: MyComponentProps) {
+  const {
+    className = '',
+    onClick: () => {},
+    onEdit: (value) => {},
+  } = props
+  
+  return (
+    <div
+      className={className + ' my-component-class'}
+    >
+      <Button onClick={onClick}> </Button>
+      <TextField
+        onInput={onEdit}           
+      > </TextField>
+    </div>
+  )
+}
 
 const myLovelyImage: Type.ImageContent = {
   id: "1",
