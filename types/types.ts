@@ -1,11 +1,11 @@
 type imageContent = slideDatas & {
-  type: "image";
-  imageSrc: "imageLink" | "imagebase64";
+  type: 'image';
+  imageSrc: 'imageLink' | 'imagebase64';
   pathImage: string;
 };
 
 type textContent = slideDatas & {
-  type: "text";
+  type: 'text';
   text: Array<string>;
   fontFamily: string;
   fontSize: number;
@@ -31,12 +31,12 @@ type backColor = {
 };
 
 type backImage = {
-  imageSrc: "imageLink" | "imagebase64";
+  imageSrc: 'imageLink' | 'imagebase64';
   pathImage: string;
 };
 
 type primitive = slideDatas & {
-  type: "Triangle" | "Circle" | "Rectangle";
+  type: 'Triangle' | 'Circle' | 'Rectangle';
   borderColor: string;
   primitiveX: number;
   primitiveY: number;

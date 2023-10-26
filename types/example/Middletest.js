@@ -1,5 +1,5 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
+"use strict"
+Object.defineProperty(exports, "__esModule", { value: true })
 //нет opacity и rotate
 var myLovelyImage1 = {
   id: 1,
@@ -11,7 +11,7 @@ var myLovelyImage1 = {
   imageSrc: "imageLink",
   pathImage:
     "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/140-P1020281_-_Flickr_-_Laurie_Nature_Bee.jpg/1280px-140-P1020281_-_Flickr_-_Laurie_Nature_Bee.jpg",
-};
+}
 //нет opacity
 var myLovelyImage2 = {
   id: 6,
@@ -24,7 +24,7 @@ var myLovelyImage2 = {
   imageSrc: "imageLink",
   pathImage:
     "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/140-P1020281_-_Flickr_-_Laurie_Nature_Bee.jpg/1280px-140-P1020281_-_Flickr_-_Laurie_Nature_Bee.jpg",
-};
+}
 //нет rotate
 var myLovelyImage3 = {
   id: 7,
@@ -37,7 +37,7 @@ var myLovelyImage3 = {
   imageSrc: "imageLink",
   pathImage:
     "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/140-P1020281_-_Flickr_-_Laurie_Nature_Bee.jpg/1280px-140-P1020281_-_Flickr_-_Laurie_Nature_Bee.jpg",
-};
+}
 var textCont = {
   id: 2,
   x: 2,
@@ -55,15 +55,15 @@ var textCont = {
   fontItalica: true,
   underline: true,
   fontStrikeThrough: true,
-};
+}
 var backLandscape = {
   color: "black",
-};
+}
 var backLandscape2 = {
   imageSrc: "imageLink",
   pathImage:
     "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/140-P1020281_-_Flickr_-_Laurie_Nature_Bee.jpg/1280px-140-P1020281_-_Flickr_-_Laurie_Nature_Bee.jpg",
-};
+}
 var slides1 = {
   id: 1,
   background: {
@@ -72,15 +72,15 @@ var slides1 = {
       "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/140-P1020281_-_Flickr_-_Laurie_Nature_Bee.jpg/1280px-140-P1020281_-_Flickr_-_Laurie_Nature_Bee.jpg",
   },
   slideObject: [myLovelyImage1, textCont],
-};
+}
 var myPresentation = {
   name: "myPresent",
   slides: [slides1],
-};
+}
 var editor = {
   presentation: myPresentation,
   selection: {
     slides: [1],
     objects: [1, 2, 3, 4, 5],
   },
-};
+}

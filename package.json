@@ -27,10 +27,21 @@
     "import/resolver": {
       "alias": {
         "map": [
-          ["@alias", "./path/to/alias"]
+          [
+            "@alias",
+            "./path/to/alias"
+          ]
         ],
-        "extensions": [".js", ".jsx", ".json"]
+        "extensions": [
+          ".js",
+          ".jsx",
+          ".json"
+        ]
       }
     }
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   }
 }
