@@ -38,6 +38,7 @@ type BaseElementType = {
 type BackColor = {
   type: "color";
   color: string; //если узнаем, как делается градиент, то добавим
+  pathImage: string;
 };
 
 type BackImage = {
