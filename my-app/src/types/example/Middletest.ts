@@ -1,4 +1,4 @@
-import * as Type from "../types"
+import * as Type from "../../types/types"
 
 //нет opacity и rotate
 const myLovelyImage1: Type.ImageContent = {
@@ -54,7 +54,7 @@ const textCont: Type.TextContent = {
   fontFamily: "Arial",
   fontSize: 20,
   fontColor: "black",
-  fоntBold: true,
+  fontBold: true,
   fontItalica: true,
   underline: true,
   fontStrikeThrough: true,
@@ -71,7 +71,7 @@ const backLandscape2: Type.BackImage = {
 }
 
 const slides1: Type.Slide = {
-  id: 1,
+  idSlide: 1,
   background: {
     imageSrc: "imageLink",
     pathImage:
@@ -82,14 +82,17 @@ const slides1: Type.Slide = {
 
 const myPresentation: Type.Presentation = {
   name: "myPresent",
-  slides: [slides1],
+  presentationSlides: [slides1],
+  currentSlide: slides1,
 }
 
 const editor: Type.Editor = {
   //можно ли убрать тип выше
-  presentation: myPresentation,
+  editorPresentation: myPresentation,
   selection: {
-    slides: [1],
-    objects: [1, 2, 3, 4, 5],
+    selectedSlides: [slides1.idSlide],
+    selectedObjects: [textCont.id],
   },
 }
+
+export default editor;

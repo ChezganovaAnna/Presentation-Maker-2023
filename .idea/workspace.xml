@@ -4,27 +4,41 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c0e9e998-9f23-4134-920d-723ff028d42c" name="Changes" comment="работали с eslint, pretter">
+    <list default="true" id="c0e9e998-9f23-4134-920d-723ff028d42c" name="Changes" comment="работали с eslint, pretter,react">
+      <change afterPath="$PROJECT_DIR$/my-app/src/components/Editor/editor.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my-app/src/components/Editor/editor.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my-app/src/components/SlideList/SlideList.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my-app/src/components/WorkPlace/WorkPlace.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.eslintrc.json" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.stylelintrc.json" beforeDir="false" afterPath="$PROJECT_DIR$/.stylelintrc.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/main.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/types/example/Maxtest.js" beforeDir="false" afterPath="$PROJECT_DIR$/types/example/Maxtest.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/types/example/Maxtest.ts" beforeDir="false" afterPath="$PROJECT_DIR$/types/example/Maxtest.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/types/example/Middletest.js" beforeDir="false" afterPath="$PROJECT_DIR$/types/example/Middletest.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/types/example/Middletest.ts" beforeDir="false" afterPath="$PROJECT_DIR$/types/example/Middletest.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/types/example/Mintest.js" beforeDir="false" afterPath="$PROJECT_DIR$/types/example/Mintest.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/types/example/Mintest.ts" beforeDir="false" afterPath="$PROJECT_DIR$/types/example/Mintest.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/types/types.js" beforeDir="false" afterPath="$PROJECT_DIR$/types/types.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/types/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/types/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abracadabra.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/types/example/Maxtest.js" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/types/example/Maxtest.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/types/example/Maxtest.ts" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/types/example/Maxtest.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/types/example/Middletest.js" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/types/example/Middletest.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/types/example/Middletest.ts" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/types/example/Middletest.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/types/example/Mintest.js" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/types/example/Mintest.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/types/example/Mintest.ts" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/types/example/Mintest.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/types/types.js" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/types/types.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/types/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/types/types.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript JSX File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -52,7 +66,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="DEPENDENCY_CHECKER_PROBLEMS_TAB" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -63,26 +77,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;feature&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/2 course/Presentation-Maker-2023&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.stylelint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.stylelint&quot;: &quot;D:\\2 course\\Presentation-Maker-2023\\node_modules\\stylelint&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;D:\\2 course\\Presentation-Maker-2023\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "feature",
+    "last_opened_file_path": "D:/2 course/Presentation-Maker-2023",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.stylelint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.stylelint": "D:\\2 course\\Presentation-Maker-2023\\node_modules\\stylelint",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "ts.external.directory.path": "D:\\2 course\\Presentation-Maker-2023\\my-app\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\2 course\Presentation-Maker-2023\my-app\src" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -99,7 +118,7 @@
       <workItem from="1697752683330" duration="2872000" />
       <workItem from="1697757847202" duration="9387000" />
       <workItem from="1698223350778" duration="3322000" />
-      <workItem from="1698235786866" duration="5663000" />
+      <workItem from="1698235786866" duration="16100000" />
     </task>
     <task id="LOCAL-00001" summary="сделала 3 лабу">
       <option name="closed" value="true" />
@@ -181,7 +200,15 @@
       <option name="project" value="LOCAL" />
       <updated>1697758632931</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="работали с eslint, pretter,react">
+      <option name="closed" value="true" />
+      <created>1698353130007</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1698353130007</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -189,7 +216,6 @@
     <option name="exactExcludedFiles">
       <list>
         <option value="$PROJECT_DIR$/types/example/Mintest.js" />
-        <option value="$PROJECT_DIR$/main.js" />
         <option value="$PROJECT_DIR$/types/example/Middletest.js" />
         <option value="$PROJECT_DIR$/types/types.js" />
         <option value="$PROJECT_DIR$/types/example/Maxtest.js" />
@@ -217,6 +243,7 @@
     <MESSAGE value="работали с eslint, pretter," />
     <MESSAGE value="Merge remote-tracking branch 'origin/feature' into feature" />
     <MESSAGE value="работали с eslint, pretter" />
-    <option name="LAST_COMMIT_MESSAGE" value="работали с eslint, pretter" />
+    <MESSAGE value="работали с eslint, pretter,react" />
+    <option name="LAST_COMMIT_MESSAGE" value="работали с eslint, pretter,react" />
   </component>
 </project>

@@ -19,10 +19,10 @@
     "@typescript-eslint",
     "prettier"
   ],
-  rules: {
+  "rules": {
     "react-refresh/only-export-components": [
       "warn",
-      { allowConstantExport: true }
+      { "allowConstantExport": true }
     ],
     "prettier/prettier": "warn"
   }

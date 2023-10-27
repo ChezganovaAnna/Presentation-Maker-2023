@@ -1,6 +1,6 @@
-import * as Type from "../types"
+import * as Type from "../../types/types"
 
-const myLovelyImage: Type.imageContent = {
+const myLovelyImage: Type.ImageContent = {
   id: 1,
   x: 1,
   y: 1,
@@ -14,7 +14,7 @@ const myLovelyImage: Type.imageContent = {
     "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/140-P1020281_-_Flickr_-_Laurie_Nature_Bee.jpg/1280px-140-P1020281_-_Flickr_-_Laurie_Nature_Bee.jpg",
 }
 
-const textCont: Type.textContent = {
+const textCont: Type.TextContent = {
   id: 2,
   x: 2,
   y: 2,
@@ -33,17 +33,17 @@ const textCont: Type.textContent = {
   fontStrikeThrough: true,
 }
 
-const backLandscape: Type.backColor = {
+const backLandscape: Type.BackColor = {
   color: "black",
 }
 
-const backLandscape2: Type.backImage = {
+const backLandscape2: Type.BackImage = {
   imageSrc: "imageLink",
   pathImage:
     "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/140-P1020281_-_Flickr_-_Laurie_Nature_Bee.jpg/1280px-140-P1020281_-_Flickr_-_Laurie_Nature_Bee.jpg",
 }
 
-const circle1: Type.primitive = {
+const circle1: Type.Primitive = {
   id: 3,
   x: 3,
   y: 3,
@@ -59,7 +59,7 @@ const circle1: Type.primitive = {
   fillColor: "grey",
 }
 
-const triangle1: Type.primitive = {
+const triangle1: Type.Primitive = {
   id: 4,
   x: 4,
   y: 4,
@@ -75,7 +75,7 @@ const triangle1: Type.primitive = {
   fillColor: "grey",
 }
 
-const rectangle1: Type.primitive = {
+const rectangle1: Type.Primitive = {
   id: 5,
   x: 5,
   y: 5,
@@ -91,29 +91,32 @@ const rectangle1: Type.primitive = {
   fillColor: "grey",
 }
 
-const slides1: Type.slide = {
+const slides1: Type.Slide = {
   idSlide: 1,
   background: backLandscape,
   slideObject: [myLovelyImage, textCont, circle1, rectangle1, triangle1],
 }
 
-const slides2: Type.slide = {
+const slides2: Type.Slide = {
   idSlide: 2,
   background: backLandscape2,
   slideObject: [textCont, circle1],
 }
 
-const myPresentation: Type.presentation = {
+const myPresentation: Type.Presentation = {
   name: "myPresent",
   presentationSlides: [slides1, slides2],
+  currentSlide: slides1,
 }
 
-const selectionInPresentation: Type.selected = {
+const selectionInPresentation: Type.Selected = {
   selectedSlides: [1],
-  selectedObjects: [1, 2, 3, 4, 5],
+  selectedObjects: [2],
 }
 
-const editor: Type.editor = {
+const editor: Type.Editor = {
   editorPresentation: myPresentation,
   selection: selectionInPresentation,
 }
+
+export default {editor, myPresentation, selectionInPresentation}

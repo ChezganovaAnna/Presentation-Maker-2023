@@ -1,10 +1,10 @@
-type imageContent = slideDatas & {
+type ImageContent = SlideDatas & {
   type: 'image';
   imageSrc: 'imageLink' | 'imagebase64';
   pathImage: string;
 };
 
-type textContent = slideDatas & {
+type TextContent = SlideDatas & {
   type: 'text';
   text: Array<string>;
   fontFamily: string;
@@ -15,7 +15,7 @@ type textContent = slideDatas & {
   fontStrikeThrough: boolean;
 };
 
-type slideDatas = {
+type SlideDatas = {
   id: number;
   x: number;
   y: number;
@@ -26,16 +26,16 @@ type slideDatas = {
   underline?: boolean;
 };
 
-type backColor = {
+type BackColor = {
   color: string; //если узнаем, как делается градиент, то добавим
 };
 
-type backImage = {
+type BackImage = {
   imageSrc: 'imageLink' | 'imagebase64';
   pathImage: string;
 };
 
-type primitive = slideDatas & {
+type Primitive = SlideDatas & {
   type: 'Triangle' | 'Circle' | 'Rectangle';
   borderColor: string;
   primitiveX: number;
@@ -44,48 +44,49 @@ type primitive = slideDatas & {
   fillColor: string;
 };
 
-type operation = {
+type Operation = {
   data: object;
   idOperation: number;
-  prevOperation: operation | null;
-  nextOperation: operation | null;
+  prevOperation: Operation | null;
+  nextOperation: Operation | null;
 };
 
-type operHistory = {
-  allOperation: operation;
+type OperHistory = {
+  allOperation: Operation;
 };
 
-type selected = {
+type Selected = {
   selectedSlides: Array<number>;
   selectedObjects: Array<number>;
 };
 
-type slide = {
+type Slide = {
   idSlide: number;
-  background?: backColor | backImage;
-  slideObject: Array<textContent | imageContent | primitive>;
+  background?: BackColor | BackImage;
+  slideObject: Array<TextContent | ImageContent | Primitive>;
 };
 
-type presentation = {
+type Presentation = {
   name: string;
-  presentationSlides: Array<slide>;
+  presentationSlides: Array<Slide>;
+  currentSlide?: Slide;
 };
 
-type editor = {
-  editorPresentation: presentation;
-  selection: selected;
+type Editor = {
+  editorPresentation: Presentation;
+  selection: Selected;
 };
 
-export {
-  imageContent,
-  textContent,
-  slideDatas,
-  backColor,
-  backImage,
-  primitive,
-  slide,
-  selected,
-  presentation,
-  operHistory,
-  editor,
+export type {
+  ImageContent,
+  TextContent,
+  SlideDatas,
+  BackColor,
+  BackImage,
+  Primitive,
+  Slide,
+  Selected,
+  Presentation,
+  OperHistory,
+  Editor,
 };
