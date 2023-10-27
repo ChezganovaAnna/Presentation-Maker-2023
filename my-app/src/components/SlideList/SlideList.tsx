@@ -1,6 +1,15 @@
+import "./SlideList.css";
+import { Selected, Slide } from "../../types/types";
+// import  from "../../types/example/maxtest";
+
+type SlideListProps = {
+  selectedSlides: Selected;
+  slide: Slide;
+  selectedObjects: Selected;
+};
 function SlideList() {
   return (
-    <div></div>
+    <div className="slaider">SlideList</div>
   )
 
 }

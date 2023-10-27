@@ -1,6 +1,16 @@
-"use strict"
-Object.defineProperty(exports, "__esModule", { value: true })
-var myLovelyImage = {
+import {
+  BackColor,
+  BackImage,
+  Editor,
+  ImageContent,
+  Presentation,
+  Primitive,
+  Selected,
+  Slide,
+  TextContent
+} from "../types";
+
+const myLovelyImage: ImageContent = {
   id: 1,
   x: 1,
   y: 1,
@@ -13,7 +23,8 @@ var myLovelyImage = {
   pathImage:
     "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/140-P1020281_-_Flickr_-_Laurie_Nature_Bee.jpg/1280px-140-P1020281_-_Flickr_-_Laurie_Nature_Bee.jpg",
 }
-var textCont = {
+
+const textCont: TextContent = {
   id: 2,
   x: 2,
   y: 2,
@@ -26,20 +37,23 @@ var textCont = {
   fontFamily: "Arial",
   fontSize: 20,
   fontColor: "black",
-  fоntBold: true,
+  fontBold: true,
   fontItalica: true,
   underline: true,
   fontStrikeThrough: true,
 }
-var backLandscape = {
+
+const backLandscape: BackColor = {
   color: "black",
 }
-var backLandscape2 = {
+
+const backLandscape2: BackImage = {
   imageSrc: "imageLink",
   pathImage:
     "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/140-P1020281_-_Flickr_-_Laurie_Nature_Bee.jpg/1280px-140-P1020281_-_Flickr_-_Laurie_Nature_Bee.jpg",
 }
-var circle1 = {
+
+const circle1: Primitive = {
   id: 3,
   x: 3,
   y: 3,
@@ -48,13 +62,14 @@ var circle1 = {
   opacity: 3,
   rotate: 3,
   type: "Circle",
-  border: dL,
   borderColor: "blue",
-  borderSize: 3,
+  primitiveX: 3,
+  primitiveY: 3,
   borderBold: 3,
   fillColor: "grey",
 }
-var triangle1 = {
+
+const triangle1: Primitive = {
   id: 4,
   x: 4,
   y: 4,
@@ -63,13 +78,14 @@ var triangle1 = {
   opacity: 4,
   rotate: 4,
   type: "Triangle",
-  border: fDL,
   borderColor: "blue",
-  borderSize: 4,
+  primitiveX: 4,
+  primitiveY: 4,
   borderBold: 4,
   fillColor: "grey",
 }
-var rectangle1 = {
+
+const rectangle1: Primitive = {
   id: 5,
   x: 5,
   y: 5,
@@ -78,29 +94,40 @@ var rectangle1 = {
   opacity: 5,
   rotate: 5,
   type: "Rectangle",
-  border: sL,
   borderColor: "blue",
-  borderSize: 5,
+  primitiveX: 5,
+  primitiveY: 5,
   borderBold: 5,
   fillColor: "grey",
 }
-var slides1 = {
-  id: 1,
-  background: {
-    imageSrc: "imageLink",
-    pathImage:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/140-P1020281_-_Flickr_-_Laurie_Nature_Bee.jpg/1280px-140-P1020281_-_Flickr_-_Laurie_Nature_Bee.jpg",
-  },
+
+const slides1: Slide = {
+  idSlide: 1,
+  background: backLandscape,
   slideObject: [myLovelyImage, textCont, circle1, rectangle1, triangle1],
 }
-var myPresentation = {
+
+const slides2: Slide = {
+  idSlide: 2,
+  background: backLandscape2,
+  slideObject: [textCont, circle1],
+}
+
+const myPresentation: Presentation = {
   name: "myPresent",
-  slides: [slides1],
+  presentationSlides: [slides1, slides2],
+  currentSlide: slides1,
 }
-var editor = {
-  presentation: myPresentation,
-  selection: {
-    slides: [1],
-    objects: [1, 2, 3, 4, 5],
-  },
+
+const selectionInPresentation: Selected = {
+  selectedSlides: [1],
+  selectedObjects: [2],
 }
+
+const editorData: Editor = {
+  editorPresentation: myPresentation,
+  selection: selectionInPresentation,
+}
+
+export {editorData};
+

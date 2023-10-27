@@ -69,7 +69,7 @@ type Slide = {
 type Presentation = {
   name: string;
   presentationSlides: Array<Slide>;
-  currentSlide?: Slide;
+  currentSlide: Slide;
 };
 
 type Editor = {
