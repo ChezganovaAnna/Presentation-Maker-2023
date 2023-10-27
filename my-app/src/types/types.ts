@@ -62,14 +62,14 @@ type Selected = {
 
 type Slide = {
   idSlide: number;
-  background?: BackColor | BackImage;
+  background?: BackColor;
   slideObject: Array<TextContent | ImageContent | Primitive>;
 };
 
 type Presentation = {
   name: string;
   presentationSlides: Array<Slide>;
-  currentSlide?: Slide;
+  currentSlide: Slide;
 };
 
 type Editor = {

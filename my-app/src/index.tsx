@@ -3,15 +3,14 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import editor from '../src/types/example/Maxtest';
+import { editorData } from "./types/example/maxtest";
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <App myProp={editor} />
-    <h1>"hello"</h1>
+    <App editor={editorData} />
   </React.StrictMode>
 );
 
