@@ -1,62 +1,42 @@
-//все типы с заглавной буквы ++
-// ImageType вместо imageSrc ++
-//font - убрать ++
-// Italic instead og italica ++
-//underline in TextContent ++
-// type: "Triangle@" ++
-//selectedslide uid//поле тип картинка или цвет в BackImage
-
-
-type ImageContent = BaseElementType & {
-  type: "image";
-  imageType: "imageLink" | "imagebase64";
+type ImageContent = SlideDatas & {
+  type: 'image';
+  imageSrc: 'imageLink' | 'imagebase64';
   pathImage: string;
 };
 
-type TextContent = BaseElementType & {
-  type: "text";
-  text: string;
+type TextContent = SlideDatas & {
+  type: 'text';
+  text: Array<string>;
   fontFamily: string;
   fontSize: number;
-  color: string; //убрали font
-  bold: boolean;
-  italic: boolean;
-  strikeThrough: boolean;
-  underline: boolean;
+  fontColor: string;
+  fontBold: boolean;
+  fontItalica: boolean;
+  fontStrikeThrough: boolean;
 };
 
-type BaseElementType = {
-  id: string;
+type SlideDatas = {
+  id: number;
   x: number;
   y: number;
   height: number;
   width: number;
   opacity?: number;
   rotate?: number; //можно крутить по разным осям
+  underline?: boolean;
 };
 
 type BackColor = {
-  type: "color";
   color: string; //если узнаем, как делается градиент, то добавим
-  pathImage: string;
 };
 
 type BackImage = {
-  type: "image";
-  imageType: "imageLink" | "imagebase64";
+  imageSrc: 'imageLink' | 'imagebase64';
   pathImage: string;
 };
 
-
-
-enum PrimitiveType {
-  TRIANGLE = "Triangle",
-  CIRCLE = "Circle",
-  RECTANGLE = "Rectangle"
-}
-
-type Primitive = BaseElementType & {
-  type: PrimitiveType;
+type Primitive = SlideDatas & {
+  type: 'Triangle' | 'Circle' | 'Rectangle';
   borderColor: string;
   primitiveX: number;
   primitiveY: number;
@@ -66,7 +46,7 @@ type Primitive = BaseElementType & {
 
 type Operation = {
   data: object;
-  idOperation: string;
+  idOperation: number;
   prevOperation: Operation | null;
   nextOperation: Operation | null;
 };
@@ -76,19 +56,20 @@ type OperHistory = {
 };
 
 type Selected = {
-  selectedSlides: string;
-  selectedObjects: Array<string>;
+  selectedSlides: Array<number>;
+  selectedObjects: Array<number>;
 };
 
 type Slide = {
-  idSlide: string;
-  background: BackImage|BackColor;
+  idSlide: number;
+  background?: BackColor | BackImage;
   slideObject: Array<TextContent | ImageContent | Primitive>;
 };
 
 type Presentation = {
   name: string;
   presentationSlides: Array<Slide>;
+  currentSlide: Slide;
 };
 
 type Editor = {
@@ -96,13 +77,12 @@ type Editor = {
   selection: Selected;
 };
 
-export {
+export type {
   ImageContent,
   TextContent,
-  BaseElementType,
+  SlideDatas,
   BackColor,
   BackImage,
-  PrimitiveType,
   Primitive,
   Slide,
   Selected,
