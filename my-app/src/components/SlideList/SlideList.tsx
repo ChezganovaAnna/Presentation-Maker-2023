@@ -9,7 +9,9 @@ type SlideListProps = {
 };
 function SlideList() {
   return (
-    <div className="slaider">SlideList</div>
+    <div className="slaider">
+
+    </div>
   )
 
 }
