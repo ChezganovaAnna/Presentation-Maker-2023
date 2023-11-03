@@ -33,7 +33,7 @@ const textCont: TextContent = {
   opacity: 2,
   rotate: 2,
   type: "text",
-  text: ["2, 22, 222, 2222"],
+  text: "2, 22, 222, 2222",
   fontFamily: "Arial",
   fontSize: 20,
   fontColor: "black",
@@ -44,10 +44,12 @@ const textCont: TextContent = {
 }
 
 const backLandscape: BackColor = {
+  type: "color",
   color: "black",
 }
 
 const backLandscape2: BackImage = {
+  type: "image",
   imageSrc: "imageLink",
   pathImage:
     "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/140-P1020281_-_Flickr_-_Laurie_Nature_Bee.jpg/1280px-140-P1020281_-_Flickr_-_Laurie_Nature_Bee.jpg",
