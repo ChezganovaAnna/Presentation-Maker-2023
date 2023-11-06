@@ -6,7 +6,7 @@ type ImageContent = SlideDatas & {
 
 type TextContent = SlideDatas & {
   type: 'text';
-  text: Array<string>;
+  text: string;
   fontFamily: string;
   fontSize: number;
   fontColor: string;
@@ -27,10 +27,12 @@ type SlideDatas = {
 };
 
 type BackColor = {
+  type: 'color';
   color: string; //если узнаем, как делается градиент, то добавим
 };
 
 type BackImage = {
+  type: 'image';
   imageSrc: 'imageLink' | 'imagebase64';
   pathImage: string;
 };

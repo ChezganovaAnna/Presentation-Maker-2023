@@ -5,22 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c0e9e998-9f23-4134-920d-723ff028d42c" name="Changes" comment="работали с react">
-      <change afterPath="$PROJECT_DIR$/my-app/public/index.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my-app/src/components/Slide/Slide.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my-app/src/components/SlideList/SlideList.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my-app/src/components/ToolBar/ToolBar.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/src/components/Editor/editor.css" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/components/Editor/editor.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/src/components/Editor/editor.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/components/Editor/editor.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/src/components/Head/Head.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/components/Head/Head.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/components/Slide/Slide.css" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/components/Slide/Slide.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/my-app/src/components/Slide/slide.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/components/Slide/slide.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/src/components/SlideList/SlideList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/components/SlideList/SlideList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/src/components/ToolBar/ToolBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/components/ToolBar/ToolBar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/src/components/WorkPlace/WorkPlace.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/components/WorkPlace/WorkPlace.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/src/types/example/Mintest.ts" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/types/example/Mintest.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/types/example/Middletest.ts" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/types/example/Middletest.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/types/example/maxtest.ts" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/types/example/maxtest.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/my-app/src/types/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/types/types.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -114,7 +103,8 @@
       <workItem from="1697757847202" duration="9387000" />
       <workItem from="1698223350778" duration="3322000" />
       <workItem from="1698235786866" duration="23139000" />
-      <workItem from="1698874465028" duration="5984000" />
+      <workItem from="1698874465028" duration="8383000" />
+      <workItem from="1698959785467" duration="10376000" />
     </task>
     <task id="LOCAL-00001" summary="сделала 3 лабу">
       <option name="closed" value="true" />
@@ -220,7 +210,31 @@
       <option name="project" value="LOCAL" />
       <updated>1698404003680</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="работали с react">
+      <option name="closed" value="true" />
+      <created>1698880563444</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1698880563444</updated>
+    </task>
+    <task id="LOCAL-00015" summary="работали с react">
+      <option name="closed" value="true" />
+      <created>1698880635770</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1698880635770</updated>
+    </task>
+    <task id="LOCAL-00016" summary="работали с react">
+      <option name="closed" value="true" />
+      <created>1698965405640</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1698965405640</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

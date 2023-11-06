@@ -9,7 +9,7 @@ function WorkPlace({slide} : WorkspaceProps) {
   return (
     <div>
       <Slide
-        idSlide = {slide.idSlide}
+        slide={slide}
       />
     </div>
   )
