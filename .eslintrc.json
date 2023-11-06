@@ -24,6 +24,6 @@
       "warn",
       { "allowConstantExport": true }
     ],
-    "prettier/prettier": "warn"
+    "prettier/prettier": "error"
   }
 }

@@ -5,12 +5,12 @@ type WorkspaceProps = {
   slide: TSlide;
 };
 
-function WorkPlace({slide} : WorkspaceProps) {
+function WorkPlace({slide}:WorkspaceProps) {
   return (
     <div>
-      <Slide
-        slide={slide}
-      />
+      {slide.idSlide}
+
+      <Slide/>
     </div>
   )
 

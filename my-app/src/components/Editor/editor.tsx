@@ -1,22 +1,24 @@
-import "./editor.css";
+import "./Editor.css";
 import { Editor } from "../../types/types";
-import SlideList from "../../components/SlideList/SlideList";
 import WorkPlace from "../../components/WorkPlace/WorkPlace";
-import Head from "../Head/Head";
+import ToolBar from "../ToolBar/ToolBar.tsx";
+import SlideList from "../SlideList/SlideList.tsx";
 
 type ViewEditor = {
   presentation: Editor;
 };
 
 function MyEditor({ presentation }: ViewEditor) {
-  const {name, presentationSlides, currentSlide} = presentation.editorPresentation;
-  const {selectedSlides, selectedObjects} = presentation.selection;
   return (
     <div className="myEditor">
-      <Head/>
+      <p>{presentation.editorPresentation.name}</p>
       <div className="main">
-        <SlideList/>
-        <WorkPlace slide={currentSlide} />
+        <SlideList
+          slide={presentation.editorPresentation.presentationSlides}
+          selectSlides={presentation.editorPresentation.selectSlides}
+        />
+        <WorkPlace slide={presentation.editorPresentation.selectSlides}/>
+        <ToolBar/>
       </div>
     </div>
   )

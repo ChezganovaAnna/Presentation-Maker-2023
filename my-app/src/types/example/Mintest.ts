@@ -1,14 +1,19 @@
-import * as Type from "../../types/types"
+import {
+  Slide,
+  Presentation, BackColor, BackImage, TextContent, ImageContent, Primitive
+} from "../types";
 
-const   firstSlide: Type.Slide = {
+const firstSlide: Slide = {
   idSlide: 1,
-  slideObject: [],
+  objects: [],
+  selectObjects: []
 }
 
-const editor: Type.Presentation = {
+const editor: Presentation = {
   name: "",
   presentationSlides: [],
   currentSlide: firstSlide,
+  selectSlides: [],
 }
 
 export default editor;
