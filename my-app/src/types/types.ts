@@ -1,94 +1,106 @@
+type Position = {
+  x: number;
+  y: number;
+};
+
+type Size = {
+  width: number;
+  height: number;
+};
+
 type ImageContent = SlideDatas & {
-  type: 'image';
-  imageSrc: 'imageLink' | 'imagebase64';
-  pathImage: string;
+  type: "image";
+  data: {
+    imageSrc: "imageLink" | "imagebase64";
+    pathImage: string;
+    alt: string;
+  };
 };
 
 type TextContent = SlideDatas & {
-  type: 'text';
-  text: string;
-  fontFamily: string;
-  fontSize: number;
-  fontColor: string;
-  fontBold: boolean;
-  fontItalica: boolean;
-  fontStrikeThrough: boolean;
+  type: "text";
+  data: {
+    text: string
+    fontFamily: string;
+    fontSize: number;
+    fontColor: string;
+    fontBold: boolean;
+    fontItalica: boolean;
+    fontStrikeThrough: boolean;
+  };
+};
+
+type Primitive = SlideDatas & {
+  type: "primitive";
+  data: {
+    form: "Triangle" | "Circle" | "Rectangle";
+    borderColor: string;
+    borderBold: number;
+    fillColor: string;
+  };
 };
 
 type SlideDatas = {
   id: number;
-  x: number;
-  y: number;
-  height: number;
-  width: number;
+  position: Position;
+  size: Size;
   opacity?: number;
   rotate?: number; //можно крутить по разным осям
   underline?: boolean;
 };
 
 type BackColor = {
-  type: 'color';
+  type: "color";
   color: string; //если узнаем, как делается градиент, то добавим
 };
 
 type BackImage = {
-  type: 'image';
-  imageSrc: 'imageLink' | 'imagebase64';
+  type: "image";
+  imageSrc: "imageLink" | "imagebase64";
   pathImage: string;
-};
-
-type Primitive = SlideDatas & {
-  type: 'Triangle' | 'Circle' | 'Rectangle';
-  borderColor: string;
-  primitiveX: number;
-  primitiveY: number;
-  borderBold: number;
-  fillColor: string;
 };
 
 type Operation = {
   data: object;
   idOperation: number;
-  prevOperation: Operation | null;
-  nextOperation: Operation | null;
 };
 
 type OperHistory = {
-  allOperation: Operation;
-};
-
-type Selected = {
-  selectedSlides: Array<number>;
-  selectedObjects: Array<number>;
+  allOperation: Array<Operation>;
+  curOperation: Operation | null; //тут, наверное, NULL надо убрать тоже
+  prevOperation: Array<Operation>;
 };
 
 type Slide = {
   idSlide: number;
   background?: BackColor | BackImage;
-  slideObject: Array<TextContent | ImageContent | Primitive>;
+  objects: Array<TextContent | ImageContent | Primitive>;
+  selectObjects: Array<TextContent | ImageContent | Primitive>;
 };
 
 type Presentation = {
   name: string;
   presentationSlides: Array<Slide>;
-  currentSlide: Slide;
+  currentSlide: Slide | null;
+  selectSlides: Array<Slide>;
 };
 
 type Editor = {
   editorPresentation: Presentation;
-  selection: Selected;
 };
 
 export type {
+  Position,
+  Size,
   ImageContent,
   TextContent,
+  Primitive,
   SlideDatas,
   BackColor,
   BackImage,
-  Primitive,
-  Slide,
-  Selected,
-  Presentation,
+  Operation,
   OperHistory,
+  Slide,
+  Presentation,
   Editor,
 };
