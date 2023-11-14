@@ -11,7 +11,7 @@ type ViewEditor = {
 function MyEditor({ presentation }: ViewEditor) {
   return (
     <div className="myEditor">
-      <p>{presentation.editorPresentation.name}</p>
+      <p className="presentation_name">{presentation.editorPresentation.name}</p>
       <div className="main">
         <SlideList
           slide={presentation.editorPresentation.presentationSlides}

@@ -7,3 +7,8 @@
     width: 50%;
     height: 100%;
 }
+
+.selectedSlide {
+    border: 30px;
+    background-color: darkorange;
+}

@@ -1,11 +1,16 @@
 .myEditor {
-    width: 100%;
     display: flex;
     flex-direction: column;
 }
 
 .main {
     display: flex;
-    flex-direction: row;
 }
 
+.presentation_name{
+    width: 100%;
+}
+
+.slide_list{
+    border-radius: 15px;
+}
