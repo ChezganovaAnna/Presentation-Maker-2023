@@ -13,16 +13,16 @@ function MyEditor({ presentation }: ViewEditor) {
     <div className="myEditor">
       <p className="presentation_name">{presentation.editorPresentation.name}</p>
       <div className="main">
-        <SlideList
-          slide={presentation.editorPresentation.presentationSlides}
-          selectSlides={presentation.editorPresentation.selectSlides}
-        />
+          <SlideList
+            slide={presentation.editorPresentation.presentationSlides}
+            selectSlides={presentation.editorPresentation.selectSlides}
+          />
         <WorkPlace slide={presentation.editorPresentation.selectSlides}/>
         <ToolBar/>
       </div>
     </div>
   )
-};
+}
 
 export default MyEditor;
 
