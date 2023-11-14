@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import styles from './App.module.css';
 import MyEditor from "./components/Editor/editor";
 import { Editor } from "./types/types";
 
@@ -8,7 +8,7 @@ type AppProps = {
 }
 function App(props:AppProps) {
   return (
-    <div >
+    <div className={styles.main}>
       <MyEditor presentation={props.editor} />
     </div>
   );

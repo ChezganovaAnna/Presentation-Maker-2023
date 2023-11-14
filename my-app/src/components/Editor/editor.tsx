@@ -1,4 +1,4 @@
-import "./Editor.css";
+import styles from "./Editor.module.css";
 import { Editor } from "../../types/types";
 import WorkPlace from "../../components/WorkPlace/WorkPlace";
 import ToolBar from "../ToolBar/ToolBar.tsx";
@@ -10,14 +10,18 @@ type ViewEditor = {
 
 function MyEditor({ presentation }: ViewEditor) {
   return (
-    <div className="myEditor">
-      <p className="presentation_name">{presentation.editorPresentation.name}</p>
-      <div className="main">
+    <div className={styles.myEditor}>
+      <p className={styles.presentation_name}>{presentation.editorPresentation.name}</p>
+      <div className={styles.slide_list}>
           <SlideList
             slide={presentation.editorPresentation.presentationSlides}
             selectSlides={presentation.editorPresentation.selectSlides}
           />
+      </div>
+      <div className={styles.workplace_slide}>
         <WorkPlace slide={presentation.editorPresentation.selectSlides}/>
+      </div>
+      <div className={styles.toolbar_slide}>
         <ToolBar/>
       </div>
     </div>

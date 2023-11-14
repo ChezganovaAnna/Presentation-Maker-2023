@@ -1,0 +1,29 @@
+.myEditor {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.slide_list {
+    display: flex;
+
+}
+
+.presentation_name{
+    width: 100%;
+}
+
+.slide_list{
+    border-radius: 15px;
+    flex-grow: 2;
+}
+
+.workplace_slide{
+    flex-grow: 10;
+}
+
+.toolbar_slide{
+    flex-grow: 2;
+}
