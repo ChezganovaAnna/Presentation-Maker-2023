@@ -1,0 +1,39 @@
+.myEditor {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-image: url("../../images/landscape-rye.png");
+    background-size: 230vh 100%;
+    filter: alpha(opacity=50);
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    padding: 0px 30px;
+}
+
+.presentation_name{
+    width: auto;
+    margin: 30px 1200px 30px 0px;
+    font-weight: 600;
+    height: 50px;
+    font-family: 'Libre Baskerville', serif;
+    font-size: 34px;
+    background-image: radial-gradient(ellipse, #C68549, #583217);
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+
+.slide_list{
+    border-radius: 15px;
+    display: flex;
+}
+
+.workplace_slide{
+}
+
+.toolbar_slide{
+    width:150px;
+    margin-right: 0px;
+}

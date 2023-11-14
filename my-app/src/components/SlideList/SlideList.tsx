@@ -11,7 +11,7 @@ function SlideList({slide, selectSlides}:SlideListProps) {
     return <div>No slides to display</div>;
   }
   return (
-    <div className="slaider">
+    <div className="slider">
       Слайд лист
       {slide.map((slide, index) => (
         <div key={slide.idSlide} className="unique_slide">
@@ -19,6 +19,7 @@ function SlideList({slide, selectSlides}:SlideListProps) {
           <h2>{slide.idSlide}</h2>
         </div>
       ))}
+
     </div>
   )
 }

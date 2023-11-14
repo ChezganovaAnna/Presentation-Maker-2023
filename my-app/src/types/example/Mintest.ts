@@ -1,6 +1,6 @@
 import {
   Slide,
-  Presentation, BackColor, BackImage, TextContent, ImageContent, Primitive
+  Presentation,
 } from "../types";
 
 const firstSlide: Slide = {
