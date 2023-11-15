@@ -1,0 +1,8 @@
+.container {
+    background: #853d5a;
+    padding: 20px;
+    height: 600px;
+    border: 5px solid #bf6084;
+    border-radius: 25px;
+    width: 200px;
+}

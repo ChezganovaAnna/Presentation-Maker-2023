@@ -18,11 +18,11 @@ function MyEditor({ presentation }: ViewEditor) {
             selectSlides={presentation.editorPresentation.selectSlides}
           />
       </div>
-     <div className={styles.workplace_slide}>
-       {presentation.editorPresentation.selectSlides.map((slide, index) => (
-         <WorkPlace key={index} slide={slide} />
-       ))}
-    </div>
+      <div className={styles.workplace_slide}>
+         {presentation.editorPresentation.selectSlides.map((slide, index) => (
+           <WorkPlace key={index} slide={slide} />
+         ))}
+      </div>
       <div className={styles.toolbar_slide}>
         <ToolBar/>
       </div>
