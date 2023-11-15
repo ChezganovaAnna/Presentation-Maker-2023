@@ -18,9 +18,11 @@ function MyEditor({ presentation }: ViewEditor) {
             selectSlides={presentation.editorPresentation.selectSlides}
           />
       </div>
-      <div className={styles.workplace_slide}>
-        <WorkPlace slide={presentation.editorPresentation.selectSlides}/>
-      </div>
+     <div className={styles.workplace_slide}>
+       {presentation.editorPresentation.selectSlides.map((slide, index) => (
+         <WorkPlace key={index} slide={slide} />
+       ))}
+    </div>
       <div className={styles.toolbar_slide}>
         <ToolBar/>
       </div>
@@ -30,19 +32,3 @@ function MyEditor({ presentation }: ViewEditor) {
 
 export default MyEditor;
 
-// function MyEditor({ presentation }: ViewEditor) {
-//   const {name, presentationSlides} = presentation.editorPresentation;
-//   const {selectedSlides, selectedObjects} = presentation.selection;
-//   // const {idSlide} = presentation.editorPresentation.currentSlide;
-//     return (
-//     <div className="myEditor">
-//       <h1>{name}</h1>
-//       <SlideList
-//         selectedSlides={selectedSlides}
-//         slides={presentationSlides}
-//         selectedObjects={selectedObjects}
-//       />
-//       <WorkPlace slide={presentation.editorPresentation.currentSlide.idSlide} />
-//     </div>
-//   );
-// }

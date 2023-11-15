@@ -19,7 +19,6 @@ function SlideList({slide, selectSlides}:SlideListProps) {
           <h2>{slide.idSlide}</h2>
         </div>
       ))}
-
     </div>
   )
 }

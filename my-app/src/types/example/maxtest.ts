@@ -13,15 +13,15 @@ const myLovelyImage: ImageContent = {
   type: "image",
   id: 1,
   position: {
-    x: 1,
-    y: 1,
+    x: 100,
+    y: 100,
   },
   size: {
-    height: 1,
-    width: 1,
+    height: 100,
+    width: 100,
   },
   opacity: 1,
-  rotate: 1,
+  rotate: 50,
   data: {
     imageSrc: "imageLink",
     pathImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/140-P1020281_-_Flickr_-_Laurie_Nature_Bee.jpg/1280px-140-P1020281_-_Flickr_-_Laurie_Nature_Bee.jpg",

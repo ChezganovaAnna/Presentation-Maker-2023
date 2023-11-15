@@ -1,4 +1,3 @@
-import React from 'react';
 import styles from './App.module.css';
 import MyEditor from "./components/Editor/editor";
 import { Editor } from "./types/types";
