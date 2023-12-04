@@ -7,8 +7,8 @@ type ImageComponentProps = {
     src: string;
     alt: string;
     size: Size;
-    imageSrc?: string; // Make imageSrc optional
-    pathImage?: string; // Make pathImage optional
+    imageSrc?: string;
+    pathImage?: string;
   };
 };
 
