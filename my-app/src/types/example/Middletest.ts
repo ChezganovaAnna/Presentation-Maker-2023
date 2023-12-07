@@ -1,101 +1,131 @@
-import * as Type from "../../types/types"
+import {
+  ImageContent,
+  TextContent,
+  BackColor,
+  BackImage,
+  Slide,
+  Presentation,
+  Editor,
+} from "../types";
+import {v4 as uuidv4} from "uuid";
 
 //нет opacity и rotate
-const myLovelyImage1: Type.ImageContent = {
-  id: 1,
-  x: 1,
-  y: 1,
-  height: 1,
-  width: 1,
+const myLovelyImage1: ImageContent = {
   type: "image",
-  imageSrc: "imageLink",
-  pathImage:
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/140-P1020281_-_Flickr_-_Laurie_Nature_Bee.jpg/1280px-140-P1020281_-_Flickr_-_Laurie_Nature_Bee.jpg",
+  id: uuidv4(),
+  position: {
+    x: 1,
+    y: 1,
+  },
+  size: {
+    height: 1,
+    width: 1,
+  },
+  data: {
+    imageSrc: "imageLink",
+    pathImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/140-P1020281_-_Flickr_-_Laurie_Nature_Bee.jpg/1280px-140-P1020281_-_Flickr_-_Laurie_Nature_Bee.jpg",
+    alt: "first-image",
+  },
 }
 
 //нет opacity
-const myLovelyImage2: Type.ImageContent = {
-  id: 6,
-  x: 6,
-  y: 6,
-  height: 6,
-  width: 6,
-  rotate: 6,
+const myLovelyImage2: ImageContent = {
   type: "image",
-  imageSrc: "imageLink",
-  pathImage:
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/140-P1020281_-_Flickr_-_Laurie_Nature_Bee.jpg/1280px-140-P1020281_-_Flickr_-_Laurie_Nature_Bee.jpg",
+  id: uuidv4(),
+  position: {
+    x: 2,
+    y: 2,
+  },
+  size: {
+    height: 2,
+    width: 2,
+  },
+  rotate: 2,
+  data: {
+    imageSrc: "imageLink",
+    pathImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/140-P1020281_-_Flickr_-_Laurie_Nature_Bee.jpg/1280px-140-P1020281_-_Flickr_-_Laurie_Nature_Bee.jpg",
+    alt: "second-image",
+  },
 }
 
 //нет rotate
-const myLovelyImage3: Type.ImageContent = {
-  id: 7,
-  x: 7,
-  y: 7,
-  height: 7,
-  width: 7,
-  opacity: 0,
+const myLovelyImage3: ImageContent = {
   type: "image",
-  imageSrc: "imageLink",
-  pathImage:
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/140-P1020281_-_Flickr_-_Laurie_Nature_Bee.jpg/1280px-140-P1020281_-_Flickr_-_Laurie_Nature_Bee.jpg",
+  id: uuidv4(),
+  position: {
+    x: 3,
+    y: 3,
+  },
+  size: {
+    height: 3,
+    width: 3,
+  },
+  opacity: 3,
+  data: {
+    imageSrc: "imageLink",
+    pathImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/140-P1020281_-_Flickr_-_Laurie_Nature_Bee.jpg/1280px-140-P1020281_-_Flickr_-_Laurie_Nature_Bee.jpg",
+    alt: "image",
+  },
 }
 
-const textCont: Type.TextContent = {
-  id: 2,
-  x: 2,
-  y: 2,
-  height: 2,
-  width: 2,
-  opacity: 2,
-  rotate: 2,
+//нет opacity и rotate
+const textCont: TextContent = {
   type: "text",
-  text: "2, 22, 222, 2222",
-  fontFamily: "Arial",
-  fontSize: 20,
-  fontColor: "black",
-  fontBold: true,
-  fontItalica: true,
+  id: uuidv4(),
+  position: {
+    x: 2,
+    y: 2,
+  },
+  size: {
+    height: 2,
+    width: 2,
+  },
+  data: {
+    text: "2, 22, 222, 2222",
+    fontFamily: "Arial",
+    fontSize: 20,
+    fontColor: "black",
+    fontBold: true,
+    fontItalica: true,
+    fontStrikeThrough: true,
+  },
   underline: true,
-  fontStrikeThrough: true,
 }
 
-const backLandscape: Type.BackColor = {
+const backLandscape: BackColor = {
   type: "color",
   color: "black",
 }
 
-const backLandscape2: Type.BackImage = {
+const backLandscape2: BackImage = {
   type: "image",
   imageSrc: "imageLink",
   pathImage:
     "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/140-P1020281_-_Flickr_-_Laurie_Nature_Bee.jpg/1280px-140-P1020281_-_Flickr_-_Laurie_Nature_Bee.jpg",
 }
 
-const slides1: Type.Slide = {
-  idSlide: 1,
-  background: {
-    type: "image",
-    imageSrc: "imageLink",
-    pathImage:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/140-P1020281_-_Flickr_-_Laurie_Nature_Bee.jpg/1280px-140-P1020281_-_Flickr_-_Laurie_Nature_Bee.jpg",
-  },
-  slideObject: [myLovelyImage1, textCont],
+const slides1: Slide = {
+  idSlide: uuidv4(),
+  background: backLandscape,
+  objects: [myLovelyImage1, textCont],
+  selectObjects: [myLovelyImage1],
 }
 
-const myPresentation: Type.Presentation = {
+const slides2: Slide = {
+  idSlide: uuidv4(),
+  background: backLandscape2,
+  objects: [myLovelyImage2],
+  selectObjects: [myLovelyImage2, myLovelyImage3],
+}
+
+const myPresentation: Presentation = {
   name: "myPresent",
-  presentationSlides: [slides1],
+  presentationSlides: [slides1, slides2],
   currentSlide: slides1,
+  selectSlides: [slides1],
 }
 
-const editor: Type.Editor = {
-  //можно ли убрать тип выше
+const editor: Editor = {
   editorPresentation: myPresentation,
-  selection: {
-    selectedSlides: [slides1.idSlide],
-    selectedObjects: [textCont.id],
-  },
 }
-
-export default editor;
+export {editor};

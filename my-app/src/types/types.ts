@@ -17,11 +17,14 @@ type ImageContent = SlideDatas & {
   };
 };
 
+// type AllowedFonts = "Arial" | "Times New Roman" | "Verdana";
+type AllowedFonts = string;
+
 type TextContent = SlideDatas & {
   type: "text";
   data: {
     text: string
-    fontFamily: string;
+    fontFamily: AllowedFonts;
     fontSize: number;
     fontColor: string;
     fontBold: boolean;
@@ -33,7 +36,7 @@ type TextContent = SlideDatas & {
 type Primitive = SlideDatas & {
   type: "primitive";
   data: {
-    form: "Triangle" | "Circle" | "Rectangle";
+    form: "Triangle" | "Ellipse" | "Rectangle";
     borderColor: string;
     borderBold: number;
     fillColor: string;
@@ -41,7 +44,7 @@ type Primitive = SlideDatas & {
 };
 
 type SlideDatas = {
-  id: number;
+  id: string;
   position: Position;
   size: Size;
   opacity?: number;
@@ -60,20 +63,35 @@ type BackImage = {
   pathImage: string;
 };
 
+type MenuElement = {
+  id: string;
+  text: string;
+  shortcut?: string;
+};
+
+type Menu = {
+  menuElements: MenuElement[];
+};
+
 type Operation = {
   data: object;
-  idOperation: number;
+  idOperation: string;
 };
 
 type OperHistory = {
   allOperation: Array<Operation>;
-  curOperation: Operation | null; //тут, наверное, NULL надо убрать тоже
   prevOperation: Array<Operation>;
 };
 
+type Option = {
+  id: string;
+  value: number | string;
+  label: string;
+};
+
 type Slide = {
-  idSlide: number;
-  background?: BackColor | BackImage;
+  idSlide: string;
+  background: BackColor | BackImage;
   objects: Array<TextContent | ImageContent | Primitive>;
   selectObjects: Array<TextContent | ImageContent | Primitive>;
 };
@@ -87,6 +105,7 @@ type Presentation = {
 
 type Editor = {
   editorPresentation: Presentation;
+  // history: OperHistory;
 };
 
 export type {
@@ -98,8 +117,12 @@ export type {
   SlideDatas,
   BackColor,
   BackImage,
+  AllowedFonts,
+  MenuElement,
+  Menu,
   Operation,
   OperHistory,
+  Option,
   Slide,
   Presentation,
   Editor,

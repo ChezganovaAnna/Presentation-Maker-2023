@@ -1,7 +1,10 @@
+import { v4 as uuidv4 } from "uuid";
 import {
   ImageContent,
   TextContent,
   Primitive,
+  AllowedFonts,
+  Size,
   BackColor,
   BackImage,
   Slide,
@@ -9,19 +12,23 @@ import {
   Editor,
 } from "../types";
 
+const fontFamily: AllowedFonts = "verdana";
+
+const size: Size = {
+  height: 100,
+  width: 300,
+};
+
 const myLovelyImage: ImageContent = {
   type: "image",
-  id: 1,
+  id: uuidv4(),
   position: {
-    x: 1,
-    y: 1,
+    x: 100,
+    y: 100,
   },
-  size: {
-    height: 1,
-    width: 1,
-  },
+  size: size,
   opacity: 1,
-  rotate: 1,
+  rotate: 50,
   data: {
     imageSrc: "imageLink",
     pathImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/140-P1020281_-_Flickr_-_Laurie_Nature_Bee.jpg/1280px-140-P1020281_-_Flickr_-_Laurie_Nature_Bee.jpg",
@@ -31,22 +38,19 @@ const myLovelyImage: ImageContent = {
 
 const textCont: TextContent = {
   type: "text",
-  id: 2,
+  id: uuidv4(),
   position: {
-    x: 2,
-    y: 2,
+    x: 100,
+    y: 200,
   },
-  size: {
-    height: 2,
-    width: 2,
-  },
-  opacity: 2,
-  rotate: 2,
+  size: size,
+  opacity: 1,
+  rotate: 0,
   data: {
-    text: "2, 22, 222, 2222",
-    fontFamily: "Arial",
+    text: "Welcome to the end of days",
+    fontFamily: fontFamily,
     fontSize: 20,
-    fontColor: "black",
+    fontColor: "red",
     fontBold: true,
     fontItalica: true,
     fontStrikeThrough: true,
@@ -54,9 +58,31 @@ const textCont: TextContent = {
   underline: true,
 }
 
+const textCont1: TextContent = {
+  type: "text",
+  id: uuidv4(),
+  position: {
+    x: 200,
+    y: 300,
+  },
+  size: size,
+  opacity: 1,
+  rotate: 0,
+  data: {
+    text: "Welcome to the end of eras",
+    fontFamily: fontFamily,
+    fontSize: 20,
+    fontColor: "green",
+    fontBold: false,
+    fontItalica: false,
+    fontStrikeThrough: false,
+  },
+  underline: false,
+}
+
 const backLandscape: BackColor = {
   type: "color",
-  color: "black",
+  color: "pink",
 }
 
 const backLandscape2: BackImage = {
@@ -67,19 +93,19 @@ const backLandscape2: BackImage = {
 
 const circle1: Primitive = {
   type: "primitive",
-  id: 3,
+  id: uuidv4(),
   position: {
     x: 3,
     y: 3,
   },
   size: {
-    height: 3,
-    width: 3,
+    height: 15,
+    width: 15,
   },
   opacity: 3,
   rotate: 3,
   data: {
-    form: "Circle",
+    form: "Ellipse",
     borderColor: "blue",
     borderBold: 3,
     fillColor: "grey",
@@ -88,14 +114,14 @@ const circle1: Primitive = {
 
 const triangle1: Primitive = {
   type: "primitive",
-  id: 4,
+  id: uuidv4(),
   position: {
     x: 4,
     y: 4,
   },
   size: {
-    height: 4,
-    width: 4,
+    height: 15,
+    width: 15,
   },
   opacity: 4,
   rotate: 4,
@@ -109,14 +135,14 @@ const triangle1: Primitive = {
 
 const rectangle1: Primitive = {
   type: "primitive",
-  id: 5,
+  id: uuidv4(),
   position: {
     x: 5,
     y: 5,
   },
   size: {
-    height: 5,
-    width: 5,
+    height: 15,
+    width: 15,
   },
   opacity: 5,
   rotate: 5,
@@ -129,22 +155,22 @@ const rectangle1: Primitive = {
 }
 
 const slides1: Slide = {
-  idSlide: 1,
+  idSlide: uuidv4(),
   background: backLandscape,
-  objects: [myLovelyImage, textCont, circle1, rectangle1, triangle1],
+  objects: [myLovelyImage, textCont, circle1, rectangle1, triangle1, textCont1],
   selectObjects: [rectangle1, triangle1],
 }
 
 const slides2: Slide = {
-  idSlide: 2,
+  idSlide: uuidv4(),
   background: backLandscape2,
-  objects: [textCont, circle1],
+  objects: [textCont, circle1, textCont1],
   selectObjects: [textCont, circle1],
 }
 
 const myPresentation: Presentation = {
   name: "myPresent",
-  presentationSlides: [slides1, slides2],
+  presentationSlides: [slides1, slides2, slides1, slides1, slides1],
   currentSlide: slides1,
   selectSlides: [slides1],
 }
@@ -153,4 +179,3 @@ const editorData: Editor = {
 }
 
 export {editorData};
-

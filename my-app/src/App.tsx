@@ -1,17 +1,16 @@
-import React from 'react';
-import './App.css';
-import MyEditor from "./components/Editor/editor";
-import { Editor } from "./types/types";
+import styles from './App.module.css';
+import MyEditor from "./components/Editor/Editor";
+import { EditorContext } from "./context/presentation";
+import React, { useContext } from "react";
 
-type AppProps = {
-  editor: Editor,
-}
-function App(props:AppProps) {
-  return (
-    <div >
-      <MyEditor presentation={props.editor} />
-    </div>
-  );
+
+function App() {
+    const { editor } = useContext(EditorContext);
+    return (
+      <div>
+        <MyEditor presentation={editor} className={styles.main}/>
+      </div>
+    );
 }
 
 export default App;
