@@ -1,20 +1,12 @@
 import {
   Slide,
   Presentation,
-  BackColor
 } from "../types";
-import {v4 as uuidv4} from "uuid";
-
-const backLandscape: BackColor = {
-  type: "color",
-  color: "blue",
-}
 
 const firstSlide: Slide = {
-  idSlide: uuidv4(),
+  idSlide: 1,
   objects: [],
-  selectObjects: [],
-  background: backLandscape,
+  selectObjects: []
 }
 
 const editor: Presentation = {
