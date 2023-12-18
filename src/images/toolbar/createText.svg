@@ -1,0 +1,27 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="0.5" y="0.5" width="31" height="31" fill="white"/>
+<rect x="0.5" y="0.5" width="31" height="31" stroke="#ECD9D9" stroke-linejoin="round"/>
+<circle cx="6" cy="6" r="1.5" fill="#D9D9D9" stroke="black"/>
+<circle cx="6" cy="26" r="1.5" fill="#D9D9D9" stroke="black"/>
+<circle cx="26" cy="26" r="1.5" fill="#D9D9D9" stroke="black"/>
+<path d="M6 17V19" stroke="black" stroke-linejoin="round"/>
+<path d="M11 6H9" stroke="black" stroke-linejoin="round"/>
+<path d="M19 6H17" stroke="black" stroke-linejoin="round"/>
+<path d="M15 6H13" stroke="black" stroke-linejoin="round"/>
+<path d="M23 6H21" stroke="black" stroke-linejoin="round"/>
+<path d="M11 26H9" stroke="black" stroke-linejoin="round"/>
+<path d="M19 26H17" stroke="black" stroke-linejoin="round"/>
+<path d="M15 26H13" stroke="black" stroke-linejoin="round"/>
+<path d="M23 26H21" stroke="black" stroke-linejoin="round"/>
+<path d="M6 9.5V11.5" stroke="black" stroke-linejoin="round"/>
+<path d="M6 21V23" stroke="black" stroke-linejoin="round"/>
+<path d="M6 13V15" stroke="black" stroke-linejoin="round"/>
+<path d="M26 16.5V18.5" stroke="black" stroke-linejoin="round"/>
+<path d="M26 9V11" stroke="black" stroke-linejoin="round"/>
+<path d="M26 20.5V22.5" stroke="black" stroke-linejoin="round"/>
+<path d="M26 12.5V14.5" stroke="black" stroke-linejoin="round"/>
+<circle cx="26" cy="6" r="1.5" fill="#D9D9D9" stroke="black"/>
+<g style="mix-blend-mode:darken">
+<path d="M11.6364 13.1307V11.3636H20.9205V13.1307H17.3239V23H15.233V13.1307H11.6364Z" fill="black"/>
+</g>
+</svg>
