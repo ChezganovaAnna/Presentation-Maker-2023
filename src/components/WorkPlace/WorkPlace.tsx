@@ -3,10 +3,12 @@ import { Slide as TSlide } from "../../types/types";
 import styles from "./WorkPlace.module.css"
 
 type WorkspaceProps = {
-  slide: TSlide;
+  slide: TSlide | null;
+  className: string;
 };
 
-function WorkPlace({slide}:WorkspaceProps) {
+function WorkPlace({slide, className}: WorkspaceProps) {
+
   return (
     <div className={styles.main_slide}>
       {slide && (

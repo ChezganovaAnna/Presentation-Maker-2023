@@ -1,7 +1,7 @@
 import React from 'react';
 import Block from "../Commons/Block/Block";
 import styles from "./Slide.module.css";
-import { Slide as SlideType, ImageContent } from "../../types/types";
+import { Slide as SlideType } from "../../types/types";
 
 type SlideProps = {
     slide: SlideType;
@@ -17,13 +17,14 @@ const Slide = ({slide, isSelected, className}: SlideProps) => {
         background: slide.background?.type === "color"
             ? slide.background.color
             : slide.background?.type === "image"
-                ? `url(${slide.background.pathImage})`
+                ? `url(${slide.background.imageSrc})`
                 : undefined,
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover'
     };
 
     return (
         <div className={classNames} style={slideStyle}>
-            <p style={{ margin: '0px' }}>{slide.idSlide}</p>
             {slide.objects.map((object) => (
                 <Block key={object.id} {...object} />
             ))}

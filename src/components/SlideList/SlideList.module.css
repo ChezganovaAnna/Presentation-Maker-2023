@@ -41,7 +41,7 @@
 .circle {
   display: flex;
   flex-direction: column;
-  height: 200px;
+  height: 240px;
   background-color: #F0BD7B;
 }
 

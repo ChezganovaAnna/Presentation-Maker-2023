@@ -1,20 +1,16 @@
 import styles from './App.module.css';
-import Head from "./components/Head/Head";
 import MyEditor from "./components/Editor/Editor";
-import { EditorContext } from "./context/presentation";
+import Presentation, { PresentationContext } from "./context/presentation";
 // import { Editor } from "./types/types";
 import React, { useContext } from "react";
-
-// type AppProps = {
-//     editor: Editor;
-// }
+import PresentationProvider from "./context/presentation";
 
 function App() {
-    const { editor } = useContext(EditorContext);
+    const { presentation } = useContext(PresentationContext); //потом будет store
     return (
-        <div className={styles.main}>
-            <MyEditor presentation={editor} />
-        </div>
+        <PresentationProvider>
+            <MyEditor presentation={ presentation } className={styles.main}/>
+        </PresentationProvider>
     );
 }
 

@@ -1,12 +1,12 @@
 import Option from "../Option/Option";
 import { Option as TOption } from "../../../types/types";
 
-type SelectProps = {
+type SelectedProps = {
     options: TOption[];
     className?: string;
 };
 
-function Select({ className, options }: SelectProps) {
+function Selected({ className, options }: SelectedProps) {
     return (
         <select className={className}>
             {options.map((option) => (
@@ -16,4 +16,4 @@ function Select({ className, options }: SelectProps) {
     );
 }
 
-export default Select;
+export default Selected;

@@ -1,47 +1,32 @@
 import React from 'react';
-// @ts-ignore
-import { ImageContent as TImage, Primitive as TPrimitive, TextContent as TText } from "../../../types/types";
-import ImageComponent from "../ImageContent/Image";
-import Text from "../../Commons/TextContent/Text"
+import Image from "../Image/Image";
+import Text from "../../Commons/Text/Text"
 import Primitive from "../../Commons/Primitive/Primitive"
 import classes from "./Block.module.css";
+import { ImageContent, Primitive as PrimitiveType, TextContent } from "../../../types/types";
 
-type BlockProps = TPrimitive | TImage | TText;
+type BlockProps = ImageContent | PrimitiveType | TextContent;
 
-function Block({ position, size, rotate, type, data, opacity }: BlockProps) {
+function Block({ position, size, rotate, type, data }: BlockProps) {
     const centerX = size.width / 2;
     const centerY = size.height / 2;
 
-    const style: React.CSSProperties = {
+    const settings = {
         height: size.height,
-        left: position.x,
-        top: position.y,
+        x: position.x,
+        y: position.y,
         transform: `rotate(${rotate}deg)`,
         transformOrigin: `${centerX}px ${centerY}px`,
         width: size.width,
     };
 
-    if (type === "image") {
-        return <ImageComponent data={{ src: "imageLink", alt: "imageAlt", size: { width: 100, height: 100 }, imageSrc: data?.imageSrc, pathImage: data?.pathImage || "" }} />;
-    }
-
-    if (type === "text") {
-        return <Text data={data}/>;
-    }
-
-    if (type === "primitive") {
-        return <Primitive position={position} size={size} opacity={opacity} rotate={rotate} data={data}/>
-    }
-
     return (
-        <div className={classes.block} style={style}>
-            {
-
-            }
-        </div>
+      <div className={classes.block}>
+          {type === "image" && <Image data={data} />}
+          {type === "primitive" && <Primitive position={position} size={size} rotate={rotate} data={data} />}
+          {type === "text" && <Text data={data} settings={settings}/>}
+      </div>
     );
 }
 
 export default Block;
-
-

@@ -3,16 +3,12 @@ import { Size, Position } from "../../../types/types";
 type PrimitiveProps = {
     position: Position;
     size: Size;
-    opacity: number | undefined;
     rotate: number | undefined;
     data: {
         form: "Triangle" | "Ellipse" | "Rectangle";
-        borderColor: string;
-        borderBold: number;
-        fillColor: string;
+        borderColor?: string;
     };
 };
-{/*здесь borderBold нужно убрать, но мне лень*/}
 
 function calculateTriangleCoordinates(width: number, height: number): string {
     const x1 = width / 2;
@@ -23,8 +19,8 @@ function calculateTriangleCoordinates(width: number, height: number): string {
     return `${x1},${y1} ${x2},${y2} ${width},${height}`;
 }
 
-function Primitive({ data, rotate, size, opacity, position }: PrimitiveProps) {
-    const { borderColor, fillColor, borderBold, form } = data;
+function Primitive({ data, rotate, size, position }: PrimitiveProps) {
+    const { borderColor, form } = data;
     const centerX = size.width / 2;
     const centerY = size.height / 2;
 
@@ -37,7 +33,6 @@ function Primitive({ data, rotate, size, opacity, position }: PrimitiveProps) {
                         cy={centerY}
                         rx={size.width / 2}
                         ry={size.height / 2}
-                        fill={fillColor}
                         stroke={borderColor}
                     />
                 )}
@@ -47,14 +42,12 @@ function Primitive({ data, rotate, size, opacity, position }: PrimitiveProps) {
                       y={0}
                       width={size.width}
                       height={size.height}
-                      fill={fillColor}
                       stroke={borderColor}
                     />
                 )}
                 {form === "Triangle" && (
                     <polygon
                         points={calculateTriangleCoordinates(size.width, size.height)}
-                        fill={fillColor}
                         stroke={borderColor}
                     />
                 )}

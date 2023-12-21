@@ -1,7 +1,7 @@
 import Button from "../Button/Button";
 import classes from "./MenuPrimitives.module.css";
 
-function MenuPrimitives() {
+function MenuPrim() {
     return (
         <div className={classes.primitives}>
             <Button icon="rectangle" />
@@ -11,4 +11,4 @@ function MenuPrimitives() {
     );
 }
 
-export default MenuPrimitives;
+export default MenuPrim;

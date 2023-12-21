@@ -11,13 +11,12 @@ type Size = {
 type ImageContent = SlideDatas & {
   type: "image";
   data: {
-    imageSrc: "imageLink" | "imagebase64";
-    pathImage: string;
+    imageSrc: string;
     alt: string;
+    size: Size;
   };
 };
 
-// type AllowedFonts = "Arial" | "Times New Roman" | "Verdana";
 type AllowedFonts = string;
 
 type TextContent = SlideDatas & {
@@ -38,8 +37,8 @@ type Primitive = SlideDatas & {
   data: {
     form: "Triangle" | "Ellipse" | "Rectangle";
     borderColor: string;
-    borderBold: number;
-    fillColor: string;
+    // borderBold: number;
+    // fillColor: string;
   };
 };
 
@@ -47,20 +46,18 @@ type SlideDatas = {
   id: string;
   position: Position;
   size: Size;
-  opacity?: number;
-  rotate?: number; //можно крутить по разным осям
-  underline?: boolean;
+  rotate?: number;
+  selected: boolean;
 };
 
 type BackColor = {
   type: "color";
-  color: string; //если узнаем, как делается градиент, то добавим
+  color: string;
 };
 
 type BackImage = {
   type: "image";
-  imageSrc: "imageLink" | "imagebase64";
-  pathImage: string;
+  imageSrc: string;
 };
 
 type MenuElement = {
@@ -74,11 +71,11 @@ type Menu = {
 };
 
 type Operation = {
+  id: string;
   data: object;
-  idOperation: string;
 };
 
-type OperHistory = {
+type History = {
   allOperation: Array<Operation>;
   prevOperation: Array<Operation>;
 };
@@ -90,10 +87,11 @@ type Option = {
 };
 
 type Slide = {
-  idSlide: string;
+  id: string;
   background: BackColor | BackImage;
   objects: Array<TextContent | ImageContent | Primitive>;
   selectObjects: Array<TextContent | ImageContent | Primitive>;
+  selected: boolean;
 };
 
 type Presentation = {
@@ -103,10 +101,10 @@ type Presentation = {
   selectSlides: Array<Slide>;
 };
 
-type Editor = {
-  editorPresentation: Presentation;
-  // history: OperHistory;
-};
+// type Editor = {
+//   editorPresentation: Presentation;
+//   // history: OperHistory;
+// };
 
 export type {
   Position,
@@ -121,9 +119,9 @@ export type {
   MenuElement,
   Menu,
   Operation,
-  OperHistory,
+  History,
   Option,
   Slide,
   Presentation,
-  Editor,
+  // Editor,
 };

@@ -1,6 +1,6 @@
 // import { correctionMenu, fileMenu } from "../../../Permanent/MenuView";
-import  TInput  from "../../Commons/InputDatas/Input";
-import MenuButton from "../MenuButtonElem/MenuButtonElem";
+import  TInput  from "../InputDatas/InputDatas";
+import MenuButton from "../MenuButton/MenuButton";
 import classes from "./MenuView.module.css";
 
 type MenuBarProps = {

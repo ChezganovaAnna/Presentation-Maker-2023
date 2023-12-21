@@ -1,16 +1,14 @@
 .container {
     padding: 15px;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-content: flex-start;
     align-items: flex-start;
     flex-wrap: wrap;
     background: rgba(254, 237, 191, 0.63);
     border: 4px solid #F0BD7B;
     border-radius: 25px;
-    height: 70vh;
-    gap:3px;
-    flex-direction: row;
+    height: 75vh;
 }
 
 .basic
@@ -19,7 +17,7 @@
     flex-direction: row;
     justify-content: center;
     gap: 3px;
-    width: 100px;
+    width: 150px;
 }
 
 .font-size-input
@@ -35,4 +33,56 @@
 .font-size-input:hover{
     animation: gradient 10s ease infinite;
     transform: scale(1.1);
+}
+
+.button {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    font-size: 20px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    background: linear-gradient(45deg,#C68549 ,#FEEDBF, #A18B66);
+    border-radius: 20%;
+    transition: all 0.3s ease;
+    border: none;
+    color: #583217;
+    cursor: pointer;
+}
+
+.options
+{
+    display: flex;
+    gap: 3px;
+    flex-wrap: wrap;
+    width: 143px;
+}
+
+.options_slides
+{
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+
+}
+
+.text
+{
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.deal_slides
+{
+    padding: 6px;
+    border-radius: 15px;
+    background: linear-gradient(45deg,#C68549 ,#FEEDBF, #A18B66);
+    width: 140px;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 8px;
+    line-height: 2;
+    margin-left: -2px;
 }

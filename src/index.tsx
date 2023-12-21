@@ -4,17 +4,17 @@ import './index.css';
 import App from './App';
 import PresentationProvider from "./context/presentation";
 import reportWebVitals from './reportWebVitals';
-import { editorData } from "./types/example/maxtest";
+import { Provider } from 'react-redux'
+import {createStore} from "redux"
+
+
+
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
 root.render(
-  <React.StrictMode>
-      {/*<App editor={editorData} />*/}
-      <PresentationProvider>
-          <App />
-      </PresentationProvider>
-  </React.StrictMode>,
+    <App />
 );
 reportWebVitals();

@@ -1,14 +1,14 @@
 import React from "react";
 import Button from "../Button/Button";
-import MenuPrimitives from "../MenuPrim/MenuPrim";
+import MenuPrim from "../MenuPrim/MenuPrim";
 
-const MenuButtonPrimitives = () => {
+const MenuButtonPrimitive = () => {
     return (
         <div>
             <Button icon="category" />
-            <MenuPrimitives />
+            <MenuPrim />
         </div>
     );
 }
 
-export default MenuButtonPrimitives;
+export default MenuButtonPrimitive;

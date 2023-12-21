@@ -1,39 +1,32 @@
 .myEditor {
-    display: flex;
-    flex-direction: row;
     width: 100%;
     flex-wrap: wrap;
-    justify-content: space-between;
-    background-image: url("../../images/landscape-rye.png");
-    background-size: 230vh 100%;
-    filter: alpha(opacity=50);
+    justify-content: space-around;
+    align-items: center;
+    background-image: url("../../../images/z-me-too.png");
+    background-size: 100% 100%;
     background-repeat: no-repeat;
-    min-height: 100vh;
-    padding: 0px 30px;
+    height: 100vh;
 }
 
-.presentation_name{
-    width: auto;
-    margin: 30px 1200px 30px 0px;
+.presentation_name {
+    padding-left: 30px;
+    width: 100%;
     font-weight: 600;
     height: 50px;
     font-family: 'Libre Baskerville', serif;
     font-size: 34px;
-    background-image: radial-gradient(ellipse, #C68549, #583217);
+    background-image: radial-gradient(ellipse, #583217, #C68549);
     color: transparent;
     background-clip: text;
     -webkit-background-clip: text;
 }
 
-.slide_list{
+.slide_list {
     border-radius: 15px;
     display: flex;
 }
 
-.workplace_slide{
-}
-
-.toolbar_slide{
-    width:150px;
-    margin-right: 0px;
+.toolbar_slide {
+    width: 150px;
 }
