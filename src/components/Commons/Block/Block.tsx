@@ -22,7 +22,7 @@ function Block({ position, size, rotate, type, data }: BlockProps) {
 
     return (
       <div className={classes.block}>
-          {type === "image" && <Image data={data} />}
+          {type === "image" && <Image data={data} settings={settings}/>}
           {type === "primitive" && <Primitive position={position} size={size} rotate={rotate} data={data} />}
           {type === "text" && <Text data={data} settings={settings}/>}
       </div>

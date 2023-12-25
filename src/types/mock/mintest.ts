@@ -21,7 +21,7 @@ const firstSlide: Slide = {
 const editor: Presentation = {
   name: "",
   presentationSlides: [firstSlide],
-  currentSlide: firstSlide,
+  currentSlide: firstSlide.id,
   selectSlides: [],
 }
 

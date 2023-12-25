@@ -3,13 +3,13 @@
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
-    background-image: url("../../images/landscape-rye.png");
+    background-image: url("../../../images/z-me-too.png");
     background-size: 100% 100%;
     background-repeat: no-repeat;
     height: 100vh;
 }
 
-.presentation_name{
+.presentation_name {
     padding-left: 30px;
     width: 100%;
     font-weight: 600;
@@ -22,11 +22,11 @@
     -webkit-background-clip: text;
 }
 
-.slide_list{
+.slide_list {
     border-radius: 15px;
     display: flex;
 }
 
-.toolbar_slide{
+.toolbar_slide {
     width: 150px;
 }

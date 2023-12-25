@@ -1,15 +1,16 @@
-import { PropsWithChildren, createContext, useState } from "react";
-import { Presentation } from "../types/types";
+import {createContext, PropsWithChildren, useState} from "react";
 import {
     AllowedFonts,
     BackColor,
     BackImage,
     ImageContent,
+    Presentation,
     Primitive,
-    Size, Slide,
+    Size,
+    Slide,
     TextContent
 } from "../types/types";
-import { v4 as uuidv4 } from "uuid";
+import {v4 as uuidv4} from "uuid";
 
 type PresentationContextType = {
     presentation: Presentation;
@@ -167,37 +168,15 @@ const slides2: Slide = {
     selectObjects: [textCont, circle1],
     selected: true
 }
-export const PresentationContext = createContext<PresentationContextType>({
+
+
+export const pres = {
     presentation: {
-        name: "My Presentation",
-        presentationSlides: [slides2],
-        currentSlide: slides2,
-        selectSlides: [slides2],
-    },
-    setPresentation: () => {},
-});
-
-function PresentationProvider({ children }: PropsWithChildren) {
-    const [presentation, setPresentation] = useState<Presentation>({
-        name: "MyPresent",
+        name: "",
         presentationSlides: [slides1, slides2],
-        currentSlide: slides2,
-        selectSlides: [slides2],
-    });
-
-    const handleSetPresentation = (newPresentation: Presentation) => {
-        setPresentation({ ...newPresentation });
-    };
-
-    return (
-      <PresentationContext.Provider
-        value={{
-            presentation,
-            setPresentation: handleSetPresentation,
-        }}
-        children={children}
-      />
-    );
+        currentSlide: slides1.id,
+        selectSlides: [] },
+    setPresentation: (newPresentation: Presentation) => {},
 }
 
-export default PresentationProvider;
+export const PresentationContext = createContext<PresentationContextType>(pres);

@@ -1,5 +1,6 @@
-import React from 'react';
+import React, {CSSProperties, useRef, useState} from 'react';
 import { Size, Position } from "../../../types/types";
+import useDragAndDrop from "../../../hooks/useDragAndDrop";
 
 type ImageProps = {
   data: {
@@ -10,9 +11,17 @@ type ImageProps = {
     imageSrc?: string;
     pathImage?: string;
   };
+  settings: {
+    height: number,
+    x: number,
+    y: number,
+    transform: string,
+    transformOrigin: string,
+    width: number,
+  }
 };
 
-function Image({ data }: ImageProps) {
+function Image({ data, settings }: ImageProps) {
   const { src, alt, size, imageSrc } = data;
 
   const style: React.CSSProperties = {
@@ -20,13 +29,26 @@ function Image({ data }: ImageProps) {
     width: size?.width || "auto",
   };
 
- // const ref = useRef();
+  const position = {
+    x: settings.x,
+    y: settings.y,
+  }
 
+  const imageRef = useRef<HTMLImageElement>(null);
+  const [pos, setPos] = useState(position);
+  useDragAndDrop(imageRef, setPos);
+
+  const styleWithPos: CSSProperties = {
+    position: "absolute",
+    height: settings.height,
+    left: pos.x,
+    top: pos.y,
+    width: settings.width,
+    cursor: "move"
+  };
 
   if (imageSrc) {
-    return <img style={style} src={imageSrc} alt={alt} />;
-  } else if (src) {
-    return <img style={style} src={src} alt={alt} />;
+    return <img ref={imageRef} style={styleWithPos} src={imageSrc} alt={alt} />;
   } else {
     return null;
   }

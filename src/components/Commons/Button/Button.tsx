@@ -1,4 +1,4 @@
-import  { MouseEventHandler } from "react";
+import {ChangeEventHandler, MouseEventHandler} from "react";
 import classes from "./Button.module.css";
 
 type ButtonProps = {

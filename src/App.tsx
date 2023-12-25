@@ -1,15 +1,25 @@
 import styles from './App.module.css';
 import MyEditor from "./components/Editor/Editor";
-import Presentation, { PresentationContext } from "./context/presentation";
-// import { Editor } from "./types/types";
-import React, { useContext } from "react";
+import { PresentationContext } from "./context/presentation";
+import React, {useContext, useState} from "react";
+import {Presentation} from "./types/types";
+import {pres} from "./context/presentation";
+
+
 
 function App() {
-    const { presentation } = useContext(PresentationContext);
+
+    const [state, setState] = useState<Presentation>( pres.presentation);
+
     return (
-        <div>
-            <MyEditor presentation={ presentation } className={styles.main}/>
-        </div>
+        <PresentationContext.Provider
+            value={{
+                presentation: state,
+                setPresentation: setState
+            }}
+        >
+            <MyEditor presentation={ state } className={styles.main}/>
+        </PresentationContext.Provider>
     );
 }
 

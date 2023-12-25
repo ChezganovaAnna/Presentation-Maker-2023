@@ -1,60 +1,43 @@
-import React, {useState} from "react";
+import React, {useState, useContext} from "react";
 import styles from "./SlideList.module.css";
-import { Slide as TSlide, Position as TPosition, Presentation as TPresentation } from "../../types/types";
+import { Slide as TSlide, Position as TPosition, Presentation} from "../../types/types";
 import Slide from "../Slide/Slide";
 import classes from "../Slide/Slide.module.css";
 import { v4 as uuidv4 } from "uuid";
-import useSlideCreation from "../../hooks/useSlideCreation";
-import useSlideDeletion from "../../hooks/useSlideDeletion";
-
-
-function useSlideUpdate(initialSlides: Array<TSlide>) {
-    const [slides, setSlides] = useState(initialSlides);
-
-    const createSlide = () => {
-        const newSlide: TSlide = {
-            id: uuidv4(),
-            background: { type: "color", color: "white" },
-            objects: [],
-            selectObjects: [],
-            selected: false,
-        };
-        setSlides([...slides, newSlide]);
-    };
-
-    const deleteSlide = (slideId: string) => {
-        const updatedSlides = slides.filter((slide: TSlide) => slide.id !== slideId);
-        setSlides(updatedSlides);
-    };
-
-    return {
-        slides,
-        createSlide,
-        deleteSlide,
-    };
-}
+import {useSlideUpdate} from "../../hooks/useSlideUpdate";
+import {PresentationContext} from "../../context/presentation";
 
 type SlideListProps = {
     slides: Array<TSlide>;
+    onSlideSelect: TSlide | null;
+    onSlideCreate: () => void;
+    onSlideDelete: (slideId : string) => void;
     className: string;
 };
 
-function SlideList({ slides, className}: SlideListProps) {
+function SlideList({ slides, className, onSlideSelect, onSlideDelete, onSlideCreate}: SlideListProps) {
     const objectStyle: React.CSSProperties = {
         transform: "scale(0.25)",
     };
 
-    const { slides: updatedSlides, createSlide, deleteSlide } = useSlideUpdate(slides);
+    //const {slides, createSlide, deleteSlide} = useSlideUpdate(CurrSlides);
+    //const { handleSetCurrentSlide } = useCurrentSlide();
 
     return (
         <div className={`${className} ${styles.slider}`}>
-            <button onClick={() => createSlide()}>Click here to create slide</button>
+            <button onClick={onSlideCreate}>Click here to create slide</button>
             <div className={styles.child_slide}>
-                {updatedSlides.map((slide, index) => (
+                {slides.map((slide: TSlide, index: number) => (
                     <div key={slide.id} className={styles.circle}>
-                        <button onClick={() => deleteSlide(slide.id)}>Click here to delete slide</button>
+                        <button onClick={() => onSlideDelete(slide.id)}>Click here to delete slide</button>
                         <div className={styles.unique_slide}>Слайд номер: {index + 1}</div>
-                        <div className={styles.packaging} style={objectStyle}>{slide.id}
+                        <div
+                            className={styles.packaging}
+                            style={objectStyle}
+
+                            //onClick={() => setCurrentSlide(slide.id)}
+                        >
+                            {slide.id}
                             <Slide
                                 slide={slide}
                                 isSelected={false}

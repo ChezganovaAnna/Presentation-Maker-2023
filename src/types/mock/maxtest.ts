@@ -175,7 +175,7 @@ const slides2: Slide = {
 const myPresentation: Presentation = {
   name: "myPresent",
   presentationSlides: [slides1, slides2, slides1, slides1, slides1],
-  currentSlide: slides1,
+  currentSlide: slides1.id,
   selectSlides: [slides1, slides2]
 }
 // const editorData: Editor = {

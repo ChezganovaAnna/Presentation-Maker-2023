@@ -95,9 +95,9 @@ type Slide = {
 };
 
 type Presentation = {
-  name: string;
   presentationSlides: Array<Slide>;
-  currentSlide: Slide | null;
+  name: string;
+  currentSlide: string | null;
   selectSlides: Array<Slide>;
 };
 
