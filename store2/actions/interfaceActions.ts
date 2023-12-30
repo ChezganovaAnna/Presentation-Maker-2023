@@ -1,5 +1,5 @@
 import { createAction } from '../createAction'
-//import { SlideInfo } from '../../models/types'
+import { SlideInfo } from '../../models/types'
 
 enum InterfaceActions {
   setActiveSlideId = 'SET_ACTIVE_SLIDE_ID',
@@ -18,9 +18,9 @@ export const setActiveSlideId = createAction<string | undefined>(
 export const setDragSlides = createAction<boolean>(
   InterfaceActions.setDragSlides,
 )
-//export const setDragSlidesOrigin = createAction<SlideInfo | undefined>(
-//  InterfaceActions.setDragSlidesOrigin,
-//)
+export const setDragSlidesOrigin = createAction<SlideInfo | undefined>(
+  InterfaceActions.setDragSlidesOrigin,
+)
 export const setDragSlidesDelta = createAction<number>(
   InterfaceActions.setDragSlidesDelta,
 )

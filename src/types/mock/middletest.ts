@@ -26,7 +26,6 @@ const myLovelyImage1: ImageContent = {
   id: uuidv4(),
   position: position,
   size: size,
-  selected: false,
   data: {
     imageSrc: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/140-P1020281_-_Flickr_-_Laurie_Nature_Bee.jpg/1280px-140-P1020281_-_Flickr_-_Laurie_Nature_Bee.jpg",
     alt: "first-image",
@@ -40,7 +39,6 @@ const myLovelyImage3: ImageContent = {
   id: uuidv4(),
   position: position,
   size: size,
-  selected: false,
   data: {
     imageSrc: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/140-P1020281_-_Flickr_-_Laurie_Nature_Bee.jpg/1280px-140-P1020281_-_Flickr_-_Laurie_Nature_Bee.jpg",
     alt: "image",
@@ -54,15 +52,15 @@ const textCont: TextContent = {
   id: uuidv4(),
   position: position,
   size: size,
-  selected: false,
   data: {
     text: "2, 22, 222, 2222",
     fontFamily: "Arial",
     fontSize: 20,
     fontColor: "black",
     fontBold: true,
-    fontItalica: true,
+    fontItalic: true,
     fontStrikeThrough: true,
+    fontUnderline: false
   },
 }
 
@@ -80,16 +78,12 @@ const slides1: Slide = {
   id: uuidv4(),
   background: backLandscape,
   objects: [myLovelyImage1, textCont],
-  selectObjects: [textCont],
-  selected: false,
 }
 
 const slides2: Slide = {
   id: uuidv4(),
   background: backLandscape2,
   objects: [myLovelyImage3],
-  selectObjects: [],
-  selected: false,
 }
 
 const myPresentation: Presentation = {
@@ -97,6 +91,7 @@ const myPresentation: Presentation = {
   presentationSlides: [slides1, slides2],
   currentSlide: slides1.id,
   selectSlides: [],
+  objectsSelection: [],
 }
 
 export {myPresentation};

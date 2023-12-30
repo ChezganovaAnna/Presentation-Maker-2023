@@ -1,7 +1,7 @@
 import React from 'react';
 import Block from "../Commons/Block/Block";
 import styles from "./Slide.module.css";
-import { Slide as SlideType } from "../../types/types";
+import {Slide as SlideType} from "../../types/types";
 
 type SlideProps = {
     slide: SlideType;
@@ -25,9 +25,11 @@ const Slide = ({slide, isSelected, className}: SlideProps) => {
 
     return (
         <div className={classNames} style={slideStyle}>
-            {slide.objects.map((object) => (
-                <Block key={object.id} {...object} />
-            ))}
+            <svg width={"100%"} height={"100%"}>
+                {slide.objects.map((object) => (
+                    <Block key={object.id} {...object} id={object.id}/>
+                ))}
+            </svg>
         </div>
     )
 }

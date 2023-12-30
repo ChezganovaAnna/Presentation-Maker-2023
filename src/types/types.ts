@@ -8,7 +8,7 @@ type Size = {
   height: number;
 };
 
-type ImageContent = SlideDatas & {
+type ImageContent = SlideElement & {
   type: "image";
   data: {
     imageSrc: string;
@@ -19,7 +19,7 @@ type ImageContent = SlideDatas & {
 
 type AllowedFonts = string;
 
-type TextContent = SlideDatas & {
+type TextContent = SlideElement & {
   type: "text";
   data: {
     text: string
@@ -27,12 +27,13 @@ type TextContent = SlideDatas & {
     fontSize: number;
     fontColor: string;
     fontBold: boolean;
-    fontItalica: boolean;
+    fontItalic: boolean;
     fontStrikeThrough: boolean;
+    fontUnderline: boolean;
   };
 };
 
-type Primitive = SlideDatas & {
+type Primitive = SlideElement & {
   type: "primitive";
   data: {
     form: "Triangle" | "Ellipse" | "Rectangle";
@@ -42,12 +43,12 @@ type Primitive = SlideDatas & {
   };
 };
 
-type SlideDatas = {
+type SlideElement = {
   id: string;
   position: Position;
   size: Size;
   rotate?: number;
-  selected: boolean;
+  selected?: boolean;
 };
 
 type BackColor = {
@@ -86,19 +87,25 @@ type Option = {
   label: string;
 };
 
+export interface IRect {
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+}
+
 type Slide = {
   id: string;
   background: BackColor | BackImage;
   objects: Array<TextContent | ImageContent | Primitive>;
-  selectObjects: Array<TextContent | ImageContent | Primitive>;
-  selected: boolean;
 };
 
 type Presentation = {
   presentationSlides: Array<Slide>;
   name: string;
+  objectsSelection: Array<string>;
   currentSlide: string | null;
-  selectSlides: Array<Slide>;
+  selectSlides: Array<string>;
 };
 
 // type Editor = {
@@ -112,7 +119,7 @@ export type {
   ImageContent,
   TextContent,
   Primitive,
-  SlideDatas,
+  SlideElement,
   BackColor,
   BackImage,
   AllowedFonts,

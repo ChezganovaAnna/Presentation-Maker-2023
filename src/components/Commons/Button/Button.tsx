@@ -7,7 +7,6 @@ type ButtonProps = {
     onClick?: MouseEventHandler<HTMLButtonElement>;
 };
 
-{/*это странно*/}
 
 function Button({ text, icon, onClick}: ButtonProps) {
     const isIconButton = !!icon && !text;
@@ -49,6 +48,12 @@ function Button({ text, icon, onClick}: ButtonProps) {
       break;
     case "format_underlined":
       iconClass = "zmdi zmdi-format-underlined";
+      break;
+    case "format_strikethrough":
+      iconClass = "zmdi zmdi-format-strikethrough-s";
+      break;
+    case "delete":
+      iconClass = "zmdi zmdi-delete";
       break;
     case "text_color":
       iconClass = "zmdi zmdi-format-color-text";
@@ -93,10 +98,6 @@ function Button({ text, icon, onClick}: ButtonProps) {
       break;
   }
 
-  {/*text_color
-   scissors
-   copy
-   новая кнопка*/}
 
 
   return (

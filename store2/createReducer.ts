@@ -13,6 +13,7 @@ export const createReducer = <TState>(initialState: TState, handlers: Handlers<T
 
     if (handler)
       return handler(state, action)
+
     return state;
   };
 };

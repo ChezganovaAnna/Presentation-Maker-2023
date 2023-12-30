@@ -1,25 +1,15 @@
 import styles from './App.module.css';
 import MyEditor from "./components/Editor/Editor";
-import { PresentationContext } from "./context/presentation";
-import React, {useContext, useState} from "react";
-import {Presentation} from "./types/types";
-import {pres} from "./context/presentation";
-
+import React from "react";
+import store from "./store/store";
+import {Provider} from "react-redux";
 
 
 function App() {
-
-    const [state, setState] = useState<Presentation>( pres.presentation);
-
     return (
-        <PresentationContext.Provider
-            value={{
-                presentation: state,
-                setPresentation: setState
-            }}
-        >
-            <MyEditor presentation={ state } className={styles.main}/>
-        </PresentationContext.Provider>
+        <Provider store={store}>
+            <MyEditor className={styles.main}/>
+        </Provider>
     );
 }
 
