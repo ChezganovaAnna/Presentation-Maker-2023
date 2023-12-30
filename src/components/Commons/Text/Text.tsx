@@ -1,57 +1,73 @@
-    import { CSSProperties, useState, useRef } from "react";
-    import useDragAndDrop from "../../../hooks/useDragAndDrop";
+import {CSSProperties, useRef} from "react";
+import useDragAndDrop from "../../../hooks/useDragAndDrop";
+import {usePresentationActions} from "../../../store/hooks/useRedux";
+import { useState } from 'react';
 
-    type TextProps = {
-        data: {
-            text: string;
-            fontFamily: string;
-            fontSize: number;
-            fontColor: string;
-            fontBold: boolean;
-            fontItalica: boolean;
-            fontStrikeThrough: boolean;
-        };
-        settings: {
-            height: number,
-            x: number,
-            y: number,
-            transform: string,
-            transformOrigin: string,
-            width: number,
-        }
+type TextProps = {
+    id: string,
+    data: {
+        text: string;
+        fontFamily: string;
+        fontSize: number;
+        fontColor: string;
+        fontBold: boolean;
+        fontItalic: boolean;
+        fontStrikeThrough: boolean;
+        fontUnderline: boolean
     };
-
-    function Text({ data, settings }: TextProps) {
-
-    const position = {
-        x: settings.x,
-        y: settings.y,
+    settings: {
+        height: number,
+        x: number,
+        y: number,
+        transform: string,
+        transformOrigin: string,
+        width: number,
     }
+};
 
-    const ref = useRef<HTMLElement>(null);
-    const [pos, setPos] = useState(position);
-    useDragAndDrop(ref, setPos);
+function Text({id, data, settings}: TextProps) {
 
-    const style: CSSProperties = {
-        position: "absolute",
+    const [text, setText] = useState(data.text);
+    const [isEditable, setIsEditable] = useState(false);
+
+
+    const ref = useRef(null);
+    useDragAndDrop(ref, id);
+
+    const presentationActions = usePresentationActions()
+
+    const style:CSSProperties = {
         fontFamily: data.fontFamily,
         fontSize: data.fontSize,
-        color: data.fontColor,
+        fill: data.fontColor,
         fontWeight: data.fontBold ? "bold" : "normal",
-        fontStyle: data.fontItalica ? "italic" : "normal",
-        textDecoration: data.fontStrikeThrough ? "line-through" : "none",
+        fontStyle: data.fontItalic ? "italic" : "normal",
+        textDecorationLine: data.fontStrikeThrough ? "line-through" : "none",
+        textDecoration: data.fontUnderline ?"underline" : undefined,
         height: settings.height,
-        left: pos.x,
-        top: pos.y,
+        left: settings.x,
+        top: settings.y,
         width: settings.width,
-        cursor: "move"
+        cursor: "move",
+        userSelect: "none"
     };
+    return (
+        <>
+            <text ref={ref} style={style} x={settings.x} y={settings.y}   onDoubleClick={() => {
 
-        return (
-            <span ref={ref}  style={style}>
-              {data.text}
-            </span>
-        );
-    }
+               // presentationActions.editTextItem("hello")
+            }}  >
+                {data.text}
+            </text>
+            <input
+                type="text"
+                value={text}
+                onChange={(e) => setText(e.target.value)}
+                readOnly={!isEditable}
+            />
+        </>
+    );
+}
 
-    export default Text;
+
+export default Text;

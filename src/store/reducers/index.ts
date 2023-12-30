@@ -1,11 +1,8 @@
-import { combineReducers } from 'redux';
+import {combineReducers} from 'redux';
 import presentationReducer from './presentationReducer';
 
 const rootReducer = combineReducers({
     presentation: presentationReducer,
-
-    // other reducers
-    ////////а какие например other?
 });
 
 export default rootReducer;

@@ -9,8 +9,6 @@ function useSlideCreation(initialSlides: Array<Slide>): [Array<Slide>, () => voi
             id: uuidv4(),
             background: { type: "color", color: "white" },
             objects: [],
-            selectObjects: [],
-            selected: false,
         };
         setSlides([...slides, newSlide]);
     }

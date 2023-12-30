@@ -1,22 +1,51 @@
 import React, {useEffect} from "react";
+import {usePresentationActions} from "../store/hooks/useRedux";
+import {useSelector} from "react-redux";
+import {RootState} from "../store/reducers";
 
-function useDragAndDrop(ref: React.RefObject<HTMLElement>, setPos: (pos: { x: number; y: number }) => void) {
+function useDragAndDrop(ref: React.RefObject<HTMLElement | SVGEllipseElement | SVGRectElement | SVGPolygonElement>, objectId?: string) {
+    const objectsSelection = useSelector((state: RootState) => state.presentation.objectsSelection);
+    const presentationActions = usePresentationActions();
+
     useEffect(() => {
-        const handleMouseDown = (event: MouseEvent) => {
-            if (ref.current && ref.current.contains(event.target as Node)) {
-                const startX = parseFloat(ref.current.style.left);
-                {/*положение элемента передать*/
+        const handleMouseDown = (event: Event) => {
+            const mouseEvent = event as MouseEvent;
+
+            if (ref.current && ref.current.contains(mouseEvent.target as Node)) {
+                if (mouseEvent.shiftKey && objectId) {
+                    // Toggle object ID in selection if Shift is pressed
+                    const isSelected = objectsSelection.includes(objectId);
+                    const newSelection = isSelected
+                        ? objectsSelection.filter(id => id !== objectId)
+                        : [...objectsSelection, objectId];
+                    presentationActions.setObjectSelection(newSelection);
+
+                } else {
+                    // Initialize last position
+                    let lastX = mouseEvent.clientX;
+                    let lastY = mouseEvent.clientY;
+
+                    const handleMouseMove = (e: Event) => {
+                        const moveEvent = e as MouseEvent;
+                        const offsetX = moveEvent.clientX - lastX;
+                        const offsetY = moveEvent.clientY - lastY;
+
+                        // Call moveObject with offset values
+                        presentationActions.moveObject({x: offsetX, y: offsetY});
+
+                        // Update last position
+                        lastX = moveEvent.clientX;
+                        lastY = moveEvent.clientY;
+                    };
+
+                    const handleMouseUp = () => {
+                        document.removeEventListener("mousemove", handleMouseMove);
+                        document.removeEventListener("mouseup", handleMouseUp);
+                    };
+
+                    document.addEventListener("mousemove", handleMouseMove);
+                    document.addEventListener("mouseup", handleMouseUp);
                 }
-                const startY = parseFloat(ref.current.style.top);
-                const handleMouseMove = (e: MouseEvent) => {
-                    setPos({x: startX + e.clientX - event.clientX, y: startY + e.clientY - event.clientY});
-                };
-                const handleMouseUp = () => {
-                    document.removeEventListener("mousemove", handleMouseMove);
-                    document.removeEventListener("mouseup", handleMouseUp);
-                };
-                document.addEventListener("mousemove", handleMouseMove);
-                document.addEventListener("mouseup", handleMouseUp);
             }
         };
 
@@ -29,7 +58,7 @@ function useDragAndDrop(ref: React.RefObject<HTMLElement>, setPos: (pos: { x: nu
                 }
             };
         }
-    }, [ref, setPos]);
+    }, [ref, objectsSelection, presentationActions]);
 }
 
 export default useDragAndDrop;

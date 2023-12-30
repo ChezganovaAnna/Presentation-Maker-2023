@@ -2,21 +2,20 @@ import {ChangeEventHandler, MouseEventHandler} from "react";
 import classes from "./Button.module.css";
 
 type ButtonProps = {
-    text?: string;
-    icon?: string;
-    onClick?: MouseEventHandler<HTMLButtonElement>;
+  text?: string;
+  icon?: string;
+  onClick?: MouseEventHandler<HTMLButtonElement>;
 };
 
-{/*это странно*/}
 
 function Button({ text, icon, onClick}: ButtonProps) {
-    const isIconButton = !!icon && !text;
-    const isTextButton = !!text && !icon;
-    const classNameTypeButton = isIconButton
+  const isIconButton = !!icon && !text;
+  const isTextButton = !!text && !icon;
+  const classNameTypeButton = isIconButton
       ? "button_icon"
       : isTextButton
-        ? "button_text"
-        : "";
+          ? "button_text"
+          : "";
 
   let iconClass: string = ""
   switch (icon) {
@@ -49,6 +48,12 @@ function Button({ text, icon, onClick}: ButtonProps) {
       break;
     case "format_underlined":
       iconClass = "zmdi zmdi-format-underlined";
+      break;
+    case "format_strikethrough":
+      iconClass = "zmdi zmdi-format-strikethrough-s";
+      break;
+    case "delete":
+      iconClass = "zmdi zmdi-delete";
       break;
     case "text_color":
       iconClass = "zmdi zmdi-format-color-text";
@@ -93,24 +98,20 @@ function Button({ text, icon, onClick}: ButtonProps) {
       break;
   }
 
-  {/*text_color
-   scissors
-   copy
-   новая кнопка*/}
 
 
   return (
       <button
-        type="button"
-        className={`${classes.button} ${classNameTypeButton}`}
-        onClick={onClick}
+          type="button"
+          className={`${classes.button} ${classNameTypeButton}`}
+          onClick={onClick}
       >
-          {isIconButton && (
+        {isIconButton && (
             <i className={iconClass}></i>
-          )}
-          {isTextButton && <span className={classes.text}>{text}</span>}
+        )}
+        {isTextButton && <span className={classes.text}>{text}</span>}
       </button>
-    );
+  );
 }
 
 export default Button;

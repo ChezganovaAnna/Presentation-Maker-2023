@@ -14,14 +14,13 @@ const firstSlide: Slide = {
   id: uuidv4(),
   background: backLandscape,
   objects: [],
-  selectObjects: [],
-  selected: false,
 }
 
 const editor: Presentation = {
   name: "",
   presentationSlides: [firstSlide],
   currentSlide: firstSlide.id,
+  objectsSelection: [],
   selectSlides: [],
 }
 

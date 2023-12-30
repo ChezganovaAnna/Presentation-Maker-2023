@@ -3,6 +3,7 @@ import { Size, Position } from "../../../types/types";
 import useDragAndDrop from "../../../hooks/useDragAndDrop";
 
 type ImageProps = {
+  id: string,
   data: {
     src?: string;
     alt: string;
@@ -21,7 +22,7 @@ type ImageProps = {
   }
 };
 
-function Image({ data, settings }: ImageProps) {
+function Image({ id, data, settings }: ImageProps) {
   const { src, alt, size, imageSrc } = data;
 
   const style: React.CSSProperties = {
@@ -29,20 +30,14 @@ function Image({ data, settings }: ImageProps) {
     width: size?.width || "auto",
   };
 
-  const position = {
-    x: settings.x,
-    y: settings.y,
-  }
-
   const imageRef = useRef<HTMLImageElement>(null);
-  const [pos, setPos] = useState(position);
-  useDragAndDrop(imageRef, setPos);
+  useDragAndDrop(imageRef, id);
 
   const styleWithPos: CSSProperties = {
     position: "absolute",
     height: settings.height,
-    left: pos.x,
-    top: pos.y,
+    left: settings.x,
+    top: settings.y,
     width: settings.width,
     cursor: "move"
   };

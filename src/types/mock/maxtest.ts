@@ -38,7 +38,6 @@ const myLovelyImage: ImageContent = {
     height: 25,
   },
   rotate: 0,
-  selected: false,
 };
 
 const textCont: TextContent = {
@@ -53,15 +52,15 @@ const textCont: TextContent = {
     height: 35,
   },
   rotate: 0,
-  selected: false,
   data: {
     text: "Welcome to the end of days",
     fontFamily: 'Arial',
     fontSize: 20,
     fontColor: 'red',
     fontBold: true,
-    fontItalica: true,
+    fontItalic: true,
     fontStrikeThrough: true,
+    fontUnderline: false
   },
 }
 
@@ -77,15 +76,15 @@ const textCont1: TextContent = {
     height: 35,
   },
   rotate: 0,
-  selected: false,
   data: {
     text: "Welcome to the end of eras",
     fontFamily: 'Arial',
     fontSize: 20,
     fontColor: 'red',
     fontBold: true,
-    fontItalica: true,
+    fontItalic: true,
     fontStrikeThrough: true,
+    fontUnderline: false
   },
 }
 
@@ -111,7 +110,6 @@ const circle1: Primitive = {
     width: 35,
   },
   rotate: 0,
-  selected: false,
   data: {
     form: "Ellipse",
     borderColor: "blue",
@@ -130,7 +128,6 @@ const triangle1: Primitive = {
     width: 35,
   },
   rotate: 0,
-  selected: false,
   data: {
     form: "Triangle",
     borderColor: "blue",
@@ -149,7 +146,6 @@ const rectangle1: Primitive = {
     width: 35,
   },
   rotate: 0,
-  selected: false,
   data: {
     form: "Rectangle",
     borderColor: "blue",
@@ -160,23 +156,20 @@ const slides1: Slide = {
   id: uuidv4(),
   background: backLandscape,
   objects: [myLovelyImage, textCont, circle1, rectangle1, triangle1, textCont1],
-  selectObjects: [textCont],
-  selected: false,
 }
 
 const slides2: Slide = {
   id: uuidv4(),
   background: backLandscape2,
   objects: [textCont, circle1, textCont1],
-  selectObjects: [circle1],
-  selected: false,
 }
 
 const myPresentation: Presentation = {
   name: "myPresent",
   presentationSlides: [slides1, slides2, slides1, slides1, slides1],
+  objectsSelection: [],
   currentSlide: slides1.id,
-  selectSlides: [slides1, slides2]
+  selectSlides: [slides1.id, slides2.id]
 }
 // const editorData: Editor = {
 //   editorPresentation: myPresentation,
