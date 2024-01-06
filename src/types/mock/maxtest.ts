@@ -60,7 +60,6 @@ const textCont: TextContent = {
     fontBold: true,
     fontItalic: true,
     fontStrikeThrough: true,
-    fontUnderline: false
   },
 }
 
@@ -84,7 +83,6 @@ const textCont1: TextContent = {
     fontBold: true,
     fontItalic: true,
     fontStrikeThrough: true,
-    fontUnderline: false
   },
 }
 

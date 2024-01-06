@@ -1,39 +1,52 @@
-﻿import {useContext, useState} from "react";
+﻿import React, { ButtonHTMLAttributes, useState } from "react";
 import Button from "../Commons/Button/Button";
 import InputDatas from "../Commons/InputDatas/InputDatas";
 import styles from "./ToolBar.module.css";
-import useToolBar from "../../hooks/useToolBar";
-import {usePresentationActions} from "../../store/hooks/useRedux";
-import {useSelector} from "react-redux";
-import {RootState} from "../../store/reducers";
+import { usePresentationActions } from "../../store/hooks/useRedux";
+import { useSelector } from "react-redux";
+import { RootState } from "../../store/reducers";
+import { Slide as TSlide } from "../../types/types";
 
 type ToolBarProps = {
     className: string;
 }
 
-function ToolBar({className}: ToolBarProps) {
-    const presentationActions = usePresentationActions()
+type CustomButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+};
+
+function ToolBar({ className }: ToolBarProps) {
+  const presentationActions = usePresentationActions();
+  const [selectedColor, setSelectedColor] = useState<string | undefined>();
     const [isBold, setIsBold] = useState(false);
     const [isItalic, setIsItalic] = useState(false);
     const [isUnderlined, setIsUnderlined] = useState(false);
     const [isStrikethrough, setIsStrikethrough] = useState(false);
-
-    // const {download, upload} = useToolBar(presentation, setPresentation);
     const selectedItems = useSelector((state: RootState) => state.presentation.objectsSelection);
+    const slides = useSelector((state: RootState) => state.presentation.presentationSlides);
 
-    const handleDeleteClick = () => {
-        selectedItems.forEach(itemId => presentationActions.removeItem(itemId));
+    const handleColorChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSelectedColor(event.target.value);
+  };
+
+    const handleDeleteClick = (slide?: TSlide) => {
+        if (slide) {
+            presentationActions.deleteSlide(slide.id);
+        } else if (slides.length > 1) {
+            const lastSlide = slides[slides.length - 1];
+            presentationActions.deleteSlide(lastSlide.id);
+        }
     };
 
     return (
         <div className={`${styles.container} ${className}`}>
-            <p className={styles.text_divider}>Функции с презентацией</p>
+            <p>Функции с презентацией</p>
             <div className={styles.options}>
-                <Button icon={"delete"} onClick={handleDeleteClick}/>
+                <Button icon={"delete"} onClick={() => {
+                    selectedItems.forEach(itemId => presentationActions.removeItem(itemId));
+                }}/>
                 <Button icon={"undo"}/>
                 <Button icon={"redo"}/>
-                {/*<Button icon={"download"} onClick={download}/>
-                <Button icon={"upload"} onClick={upload}/>*/}
                 <Button icon={"scissors"}/>
                 <Button icon={"copy"}/>
                 <Button icon={"search"}/>
@@ -41,16 +54,20 @@ function ToolBar({className}: ToolBarProps) {
                 <Button icon="change_history"/>
                 <div className={styles.options_slides}>
                     <div className={styles.deal_slides}>
-                        <Button icon={"remove"}/>
+                        <Button icon={"remove"} onClick={() => {
+                            if (slides.length > 1) {
+                                handleDeleteClick(slides[slides.length - 1]);
+                            }
+                        }}/>
                         <span className={styles.text}>Delete slide</span>
                     </div>
                     <div className={styles.deal_slides}>
-                        <Button icon={"add"}/>
+                        <Button icon={"add"} onClick={presentationActions.createSlide}/>
                         <span className={styles.text}>Create slide</span>
                     </div>
                 </div>
             </div>
-            <p className={styles.text_divider}>Работа с текстом</p>
+            <p>Работа с текстом</p>
             <div className={styles.options}>
                 <label htmlFor="fontSelect">Выберите шрифт:</label>
                 <select className={styles.select_font} id="fontSelect" onChange={(e) => {
@@ -70,9 +87,8 @@ function ToolBar({className}: ToolBarProps) {
                         } else {
                             presentationActions.setFontSize(newFontSize);
                         }
-                        //presentationActions.setFontSize(newFontSize)}
                     }}
-                        className={styles["font-size-input"]}/>
+                                className={styles["font-size-input"]}/>
                     <Button icon={"add"} onClick={()=> presentationActions.increaseFontSize(1)}/>
                 </div>
                 <Button icon={"insert_text"} onClick={() => {
@@ -104,27 +120,21 @@ function ToolBar({className}: ToolBarProps) {
                                } else {
                                    presentationActions.setFontColor(newFontColor);
                                }
-                               //presentationActions.setFontSize(newFontSize)}
                            }}/>
                     <Button icon={"text_color"}  />
                 </div>
             </div>
-            <p className={styles.text_divider}>Работа с картинками</p>
+            <p>Работа с картинками</p>
             <div className={styles.options}>
-                <Button icon={"image"}/>
-                </div>
-            <p className={styles.text_divider}>Работа с примитивами</p>
+              <Button icon={"image"}/>
+              <input type="color" onChange={handleColorChange} />
+            </div>
+            <p>Работа с примитивами</p>
             <div className={styles.options}>
                 <Button icon="category"/>
-                <Button icon="rectangle" onClick={() => {
-                    presentationActions.addItemPrimitive("Rectangle")
-                }}/>
-                <Button icon="circle" onClick={() => {
-                    presentationActions.addItemPrimitive("Ellipse")
-                }}/>
-                <Button icon="triangle" onClick={() => {
-                    presentationActions.addItemPrimitive("Triangle")
-                }}/>
+                <Button icon="rectangle"/>
+                <Button icon="circle"/>
+                <Button icon="triangle"/>
             </div>
         </div>
     );

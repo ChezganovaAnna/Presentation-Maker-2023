@@ -1,5 +1,6 @@
 import {BackColor, BackImage, Position} from "../../types/types";
 
+export const ADD_ITEM = 'ADD_ITEM'
 export const ADD_ITEM_TEXT = 'ADD_ITEM_TEXT';
 export const ADD_ITEM_PRIMITIVE = 'ADD_ITEM_PRIMITIVE';
 export const REMOVE_ITEM = 'REMOVE_ITEM';
@@ -26,7 +27,6 @@ export interface AddItemTextAction {
     type: typeof ADD_ITEM_TEXT;
     payload: string;
 }
-
 
 export interface AddItemPrimitiveAction {
     type: typeof ADD_ITEM_PRIMITIVE;

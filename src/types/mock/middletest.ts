@@ -60,7 +60,6 @@ const textCont: TextContent = {
     fontBold: true,
     fontItalic: true,
     fontStrikeThrough: true,
-    fontUnderline: false
   },
 }
 

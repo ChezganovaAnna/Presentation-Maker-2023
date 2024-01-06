@@ -8,6 +8,15 @@ import {PresentationActionTypes} from "../actions/presentationActions";
 export const useAppDispatch = () => useDispatch<Dispatch>()
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector
 
+export function addImage(imageUrl: string) {
+    return {
+        type: "ADD_IMAGE",
+        payload: {
+            imageUrl,
+        },
+    };
+};
+
 type ActionCreatorFunction = (...args: any[]) => PresentationActionTypes;
 
 export const usePresentationActions = () => {

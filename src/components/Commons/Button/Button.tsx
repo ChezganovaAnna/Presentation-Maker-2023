@@ -98,8 +98,6 @@ function Button({ text, icon, onClick}: ButtonProps) {
       break;
   }
 
-
-
   return (
       <button
         type="button"
