@@ -84,7 +84,7 @@ export const setObjectSelection = (ids: string[]): SetObjectSelectionAction => (
     payload: ids,
 });
 
-export const SetBackground = (newBackground: { imageSrc?: string, color?: string }): SetBackgroundAction => ({
+export const SetBackground = (newBackground: BackColor | BackImage): SetBackgroundAction => ({
     type: "SET_BACKGROUND",
     payload: newBackground,
 });

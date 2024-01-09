@@ -17,7 +17,8 @@ const Slide = ({slide, isSelected, className}: SlideProps) => {
   const presentationActions = usePresentationActions();
 
   const handleImageChange = (file: File) => {
-    const backImage: { imageSrc: string } = {
+    const backImage: BackImage = {
+      type: "image",
       imageSrc: URL.createObjectURL(file),
     };
     presentationActions.SetBackground(backImage);

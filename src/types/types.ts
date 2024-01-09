@@ -29,6 +29,7 @@ type TextContent = SlideElement & {
     fontBold: boolean;
     fontItalic: boolean;
     fontStrikeThrough: boolean;
+    fontUnderline: boolean;
   };
 };
 

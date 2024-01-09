@@ -1,4 +1,4 @@
-import {Presentation, Slide as TSlide} from "../../types/types";
+import {Presentation, Primitive, Slide as TSlide, TextContent} from "../../types/types";
 import {
     ADD_ITEM,
     ADD_ITEM_PRIMITIVE,
@@ -34,6 +34,32 @@ const initialPresentationState: Presentation = {
     objectsSelection: []
 };
 
+function applyTextMutation(state: Presentation, key: keyof TextContent["data"], value: boolean | string) {
+    return {
+        ...state,
+        presentationSlides: state.presentationSlides.map(slide => {
+            if (slide.id === state.currentSlide) {
+                return {
+                    ...slide,
+                    objects: slide.objects.map(object => {
+                        if (object.type === "text") {
+                            return {
+                                ...object,
+                                data: {
+                                    ...object.data,
+                                    key: value
+                                }
+                            };
+                        }
+                        return object;
+                    })
+                };
+            }
+            return slide;
+        })
+    };
+}
+
 const presentationReducer = (state = initialPresentationState, action: PresentationActionTypes): Presentation => {
     switch (action.type) {
         case SET_PRESENTATION_NAME:
@@ -63,37 +89,6 @@ const presentationReducer = (state = initialPresentationState, action: Presentat
             return {
                 ...state,
                 presentationSlides: state.presentationSlides.filter(slide => slide.id !== action.payload),
-            };
-        case ADD_ITEM:
-            return {
-                ...state,
-                presentationSlides: state.presentationSlides.map(slide => {
-                    if (slide.id !== state.currentSlide)
-                        return slide
-                    return {
-                        ...slide,
-                        objects: [...slide.objects,
-                            {
-                                id: uuidv4(),
-                                position: {
-                                    x: 123,
-                                    y: 123
-                                },
-                                size: {width: 100, height: 100},
-                                type: "text",
-                                data: {
-                                    text: action.payload,
-                                    fontFamily: "verdana",
-                                    fontSize: 20,
-                                    fontColor: "#000000",
-                                    fontBold: false,
-                                    fontItalic: false,
-                                    fontStrikeThrough: false,
-                                }
-                            }
-                        ]
-                    }
-                }),
             };
         case ADD_ITEM_TEXT:
             return {
@@ -134,7 +129,7 @@ const presentationReducer = (state = initialPresentationState, action: Presentat
                     x: 123,
                     y: 123
                 },
-                size: { width: 100, height: 100 },
+                size: {width: 100, height: 100},
                 type: "primitive",
                 data: {
                     form: action.payload,
@@ -346,153 +341,87 @@ const presentationReducer = (state = initialPresentationState, action: Presentat
                 })
             }
         case SET_FONT_UNDERLINED:
+            return applyTextMutation(state, "fontUnderline", action.payload)
+        case SET_FONT_STRIKETHROUGH:
+            return applyTextMutation(state, "fontStrikeThrough", action.payload)
+        case SET_FONT_COLOR:
+            return applyTextMutation(state, "fontColor", action.payload)
+        case EDIT_TEXT_ITEM:
             return {
                 ...state,
                 presentationSlides: state.presentationSlides.map(slide => {
-                    if (slide.id === state.currentSlide) {
-                        return {
-                            ...slide,
-                            objects: slide.objects.map(object => {
-                                if (object.type === "text") {
-                                    return {
-                                        ...object,
-                                        data: {
-                                            ...object.data,
-                                            fontUnderline: action.payload
-                                        }
-                                    };
-                                }
-                                return object;
-                            })
-                        };
-                    }
-                    return slide;
-                })
-            }
-            case SET_FONT_STRIKETHROUGH:
-                return {
-                    ...state,
-                    presentationSlides: state.presentationSlides.map(slide => {
-                        if (slide.id === state.currentSlide) {
-                            return {
-                                ...slide,
-                                objects: slide.objects.map(object => {
-                                    if (object.type === "text") {
-                                        return {
-                                            ...object,
-                                            data: {
-                                                ...object.data,
-                                                fontStrikeThrough: action.payload
-                                            }
-                                        };
-                                    }
-                                    return object;
-                                })
-                            };
-                        }
-                        return slide;
-                    })
-                }
-            case SET_FONT_COLOR:
-                return {
-                    ...state,
-                    presentationSlides: state.presentationSlides.map(slide => {
-                        if (slide.id === state.currentSlide) {
-                            return {
-                                ...slide,
-                                objects: slide.objects.map(object => {
-                                    if (object.type === "text") {
-                                        return {
-                                            ...object,
-                                            data: {
-                                                ...object.data,
-                                                fontColor: action.payload
-                                            }
-                                        };
-                                    }
-                                    return object;
-                                })
-                            };
-                        }
-                        return slide;
-                    })
-                }
-            case EDIT_TEXT_ITEM:
-                return {
-                    ...state,
-                    presentationSlides: state.presentationSlides.map(slide => {
-                        if (slide.id !== state.currentSlide)
-                            return slide
-                        return {
-                            ...slide,
-                            objects: [...slide.objects,
-                                {
-                                    id: uuidv4(),
-                                    position: {
-                                        x: 123,
-                                        y: 123
-                                    },
-                                    size: {width: 100, height: 100},
-                                    type: "text",
-                                    data: {
-                                        text: action.payload,
-                                        fontFamily: "verdana",
-                                        fontSize: 20,
-                                        fontColor: "#000000",
-                                        fontBold: false,
-                                        fontItalic: false,
-                                        fontStrikeThrough: false,
-                                        fontUnderline: false
-                                    }
-                                }
-                            ]
-                        }
-                    }),
-                };
-            case MOVE_OBJECT:
-                return {
-                    ...state,
-                    presentationSlides: state.presentationSlides.map(slide => {
-                        if (slide.id !== state.currentSlide)
-                            return slide
-                        console.log("HEY BRO NICE DICK", slide)
-                        return {
-                            ...slide,
-                            objects: slide.objects.map(object => {
-                                console.log("HEY BRO NICE DICK", state.objectsSelection, object.id)
-                                if (!state.objectsSelection.includes(object.id))
-                                    return object
-                                return {
-                                    ...object,
-                                    position: {
-                                        x: object.position.x + action.payload.x,
-                                        y: object.position.y + action.payload.y
-                                    }
-                                }
-                            })
-                        }
-                    }),
-                };
-            case SET_OBJECT_SELECTION:
-                return {
-                    ...state,
-                    objectsSelection: action.payload
-                }
-            case SET_BACKGROUND:
-                return {
-                    ...state,
-                    presentationSlides: state.presentationSlides.map(slide => ({
+                    if (slide.id !== state.currentSlide)
+                        return slide
+                    return {
                         ...slide,
-                        background: action.payload,
-                    })),
-                };
+                        objects: [...slide.objects,
+                            {
+                                id: uuidv4(),
+                                position: {
+                                    x: 123,
+                                    y: 123
+                                },
+                                size: {width: 100, height: 100},
+                                type: "text",
+                                data: {
+                                    text: action.payload,
+                                    fontFamily: "verdana",
+                                    fontSize: 20,
+                                    fontColor: "#000000",
+                                    fontBold: false,
+                                    fontItalic: false,
+                                    fontStrikeThrough: false,
+                                    fontUnderline: false
+                                }
+                            }
+                        ]
+                    }
+                }),
+            };
+        case MOVE_OBJECT:
+            return {
+                ...state,
+                presentationSlides: state.presentationSlides.map(slide => {
+                    if (slide.id !== state.currentSlide)
+                        return slide
+                    console.log("HEY BRO NICE DICK", slide)
+                    return {
+                        ...slide,
+                        objects: slide.objects.map(object => {
+                            console.log("HEY BRO NICE DICK", state.objectsSelection, object.id)
+                            if (!state.objectsSelection.includes(object.id))
+                                return object
+                            return {
+                                ...object,
+                                position: {
+                                    x: object.position.x + action.payload.x,
+                                    y: object.position.y + action.payload.y
+                                }
+                            }
+                        })
+                    }
+                }),
+            };
+        case SET_OBJECT_SELECTION:
+            return {
+                ...state,
+                objectsSelection: action.payload
+            }
+        case SET_BACKGROUND:
+            return {
+                ...state,
+                presentationSlides: state.presentationSlides.map(slide => ({
+                    ...slide,
+                    background: action.payload,
+                })),
+            };
 
-            //создание всяких штук и удаление +
-            //текст надо (размер) обрабатывать +
+        //создание всяких штук и удаление +
+        //текст надо (размер) обрабатывать +
 
-            default:
-                return state;
-        }
-    };
+        default:
+            return state;
+    }
+};
 
-    export default presentationReducer
+export default presentationReducer
