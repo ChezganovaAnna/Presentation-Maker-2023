@@ -26,9 +26,9 @@ function Primitive({id, data, rotate, size, position}: PrimitiveProps) {
     const {borderColor, form} = data
     const centerX = size.width / 2
     const centerY = size.height / 2
+    const ref = useRef<SVGEllipseElement | SVGRectElement | SVGPolygonElement>(null);
 
-    const ref = useRef(null);
-    useDragAndDrop(ref, id);
+    useDragAndDrop(ref, id)
 
     return (
         <>

@@ -29,7 +29,6 @@ type TextContent = SlideElement & {
     fontBold: boolean;
     fontItalic: boolean;
     fontStrikeThrough: boolean;
-    fontUnderline: boolean;
   };
 };
 
@@ -104,6 +103,7 @@ type Presentation = {
   presentationSlides: Array<Slide>;
   name: string;
   objectsSelection: Array<string>;
+  editTextElement?: string;
   currentSlide: string | null;
   selectSlides: Array<string>;
 };

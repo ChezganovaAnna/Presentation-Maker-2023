@@ -33,6 +33,7 @@ const myLovelyImage1: ImageContent = {
   },
 }
 
+//нет rotate
 const myLovelyImage3: ImageContent = {
   type: "image",
   id: uuidv4(),
@@ -59,7 +60,6 @@ const textCont: TextContent = {
     fontBold: true,
     fontItalic: true,
     fontStrikeThrough: true,
-    fontUnderline: false
   },
 }
 

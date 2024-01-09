@@ -5,7 +5,7 @@
     width: 30px;
     height: 30px;
     text-align: center;
-    background: linear-gradient(45deg,#C68549 ,#FEEDBF, #A18B66);
+    background: rgba(224, 231, 247, 0.1);
     border-radius: 20%;
     transition: all 0.3s ease;
     border: none;
@@ -17,4 +17,14 @@
 .button:hover {
     animation: gradient 10s ease infinite;
     transform: scale(1.1);
+    border: 2px solid white;
+}
+
+.icon {
+    font-size: 20px;
+}
+
+.text {
+    padding: 1px 8px;
+    font: 500 normal 14px/1 Roboto, sans-serif;
 }

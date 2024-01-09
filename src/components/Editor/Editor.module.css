@@ -1,5 +1,4 @@
 .myEditor {
-    display: flex;
     width: 100%;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -16,7 +15,6 @@
     border: 1px solid black;
     box-sizing: border-box;
     color: #F0BD7B;
-
 }
 
 .slide_list {
@@ -24,7 +22,20 @@
     display: flex;
 }
 
+.div_toolbar_slide{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
 .toolbar_slide {
-    width: 240px;
-    height: 750px;
+    width: 70%;
+    height: 100px;
+}
+.workplace_slide {
+    /* Add the following properties */
+    flex: 1; /* This will make the workplace_slide take up the remaining space */
+    display: flex;
+    justify-content: center; /* Align the content of workplace_slide to the center horizontally */
+    align-items: center; /* Align the content of workplace_slide to the center vertically */
 }

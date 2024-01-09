@@ -2,20 +2,20 @@ import {ChangeEventHandler, MouseEventHandler} from "react";
 import classes from "./Button.module.css";
 
 type ButtonProps = {
-  text?: string;
-  icon?: string;
-  onClick?: MouseEventHandler<HTMLButtonElement>;
+    text?: string;
+    icon?: string;
+    onClick?: MouseEventHandler<HTMLButtonElement>;
 };
 
 
 function Button({ text, icon, onClick}: ButtonProps) {
-  const isIconButton = !!icon && !text;
-  const isTextButton = !!text && !icon;
-  const classNameTypeButton = isIconButton
+    const isIconButton = !!icon && !text;
+    const isTextButton = !!text && !icon;
+    const classNameTypeButton = isIconButton
       ? "button_icon"
       : isTextButton
-          ? "button_text"
-          : "";
+        ? "button_text"
+        : "";
 
   let iconClass: string = ""
   switch (icon) {
@@ -98,20 +98,18 @@ function Button({ text, icon, onClick}: ButtonProps) {
       break;
   }
 
-
-
   return (
       <button
-          type="button"
-          className={`${classes.button} ${classNameTypeButton}`}
-          onClick={onClick}
+        type="button"
+        className={`${classes.button} ${classNameTypeButton}`}
+        onClick={onClick}
       >
-        {isIconButton && (
+          {isIconButton && (
             <i className={iconClass}></i>
-        )}
-        {isTextButton && <span className={classes.text}>{text}</span>}
+          )}
+          {isTextButton && <span className={classes.text}>{text}</span>}
       </button>
-  );
+    );
 }
 
 export default Button;

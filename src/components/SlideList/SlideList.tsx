@@ -18,12 +18,9 @@ function SlideList({className}: SlideListProps) {
 
     return (
         <div className={`${className} ${styles.slider}`}>
-            <button onClick={presentationActions.createSlide}>Click here to create slide</button>
             <div className={styles.child_slide}>
                 {slides.map((slide: TSlide, index: number) => (
                     <div key={slide.id} className={styles.circle}>
-                        <button onClick={() => presentationActions.deleteSlide(slide.id)}>Click here to delete slide
-                        </button>
                         <div className={styles.unique_slide}>Слайд номер: {index + 1}</div>
                         <div
                             className={styles.packaging}

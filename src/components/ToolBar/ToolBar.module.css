@@ -89,8 +89,8 @@
 {
     padding: 6px;
     border-radius: 15px;
-    background: linear-gradient(45deg,#C68549 ,#FEEDBF, #A18B66);
     width: 140px;
+    background: rgba(224, 231, 247, 0.1);
     display: flex;
     flex-wrap: nowrap;
     gap: 8px;
