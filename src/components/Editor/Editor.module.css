@@ -3,23 +3,18 @@
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
-    background-image: url("../../../images/z-me-too.png");
+    background-color: #7B1FA2;
     background-size: 100% 100%;
     background-repeat: no-repeat;
     height: 100vh;
 }
 
 .presentation_name {
-    padding-left: 30px;
-    width: 100%;
-    font-weight: 600;
-    height: 50px;
-    font-family: 'Libre Baskerville', serif;
-    font-size: 34px;
-    background-image: radial-gradient(ellipse, #583217, #C68549);
-    color: transparent;
-    background-clip: text;
-    -webkit-background-clip: text;
+    text-align: center;
+    width: auto;
+    border: 1px solid black;
+    box-sizing: border-box;
+    color: #F0BD7B;
 }
 
 .slide_list {
@@ -27,7 +22,20 @@
     display: flex;
 }
 
+.div_toolbar_slide{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
 .toolbar_slide {
-    width: 240px;
-    height: 750px;
+    width: 70%;
+    height: 100px;
+}
+.workplace_slide {
+    /* Add the following properties */
+    flex: 1; /* This will make the workplace_slide take up the remaining space */
+    display: flex;
+    justify-content: center; /* Align the content of workplace_slide to the center horizontally */
+    align-items: center; /* Align the content of workplace_slide to the center vertically */
 }

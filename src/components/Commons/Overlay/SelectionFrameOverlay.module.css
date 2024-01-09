@@ -1,0 +1,76 @@
+.wireframe {
+    z-index: 1;
+    position: relative;
+    left: 100px;
+    top: 120px;
+    width: 110px;
+    height: 150px;
+    cursor: move;
+    border-style: dashed;
+    border-color: darkmagenta;
+    border-width: 2px;
+}
+
+.anchor {
+    position: absolute;
+    z-index: 1;
+    cursor: grab;
+    background: red;
+}
+
+.rotationAnchorHolder {
+    border-left: 2px dashed;
+    border-color: darkmagenta;
+    color: #00000000;
+    background-color: #00000000;
+    height: 30px;
+    width: 0;
+    position: absolute;
+    left: calc(50% - 1px);
+    top: -30px;
+}
+
+.anchorRotation {
+    composes: anchor;
+    left: calc(50% - 7px);
+    border-radius: 50%;
+    top: -40px;
+    width: 15px;
+    height: 15px;
+}
+
+.anchor0 {
+    composes: anchor;
+    left: calc(100% - 3px);
+    top: -7px;
+    cursor: nesw-resize;
+    width: 10px;
+    height: 10px;
+}
+
+.anchor1 {
+    composes: anchor;
+    cursor: nwse-resize;
+    left: -7px;
+    top: -7px;
+    width: 10px;
+    height: 10px;
+}
+
+.anchor2 {
+    composes: anchor;
+    left: calc(100% - 3px);
+    top: calc(100% - 3px);
+    cursor: nwse-resize;
+    width: 10px;
+    height: 10px;
+}
+
+.anchor3 {
+    composes: anchor;
+    cursor: nesw-resize;
+    left: -7px;
+    top: calc(100% - 3px);
+    width: 10px;
+    height: 10px;
+}

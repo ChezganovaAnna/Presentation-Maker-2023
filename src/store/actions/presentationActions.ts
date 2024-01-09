@@ -1,5 +1,6 @@
-import {BackColor, BackImage, Position} from "../../types/types";
+import {BackColor, BackImage, Position, Primitive} from "../../types/types";
 
+export const ADD_ITEM = 'ADD_ITEM'
 export const ADD_ITEM_TEXT = 'ADD_ITEM_TEXT';
 export const ADD_ITEM_PRIMITIVE = 'ADD_ITEM_PRIMITIVE';
 export const REMOVE_ITEM = 'REMOVE_ITEM';
@@ -22,11 +23,29 @@ export const SET_FONT_COLOR = 'SET_FONT_COLOR';
 
 export const EDIT_TEXT_ITEM = 'EDIT_TEXT_ITEM';
 
+export const createAddItemToPresentation = (
+    slideId: number,
+    textItem: Text,
+    primitiveItem: Primitive | null,
+    index: number,
+    type: "ADD_ITEM"
+) => {
+    return {
+        payload: {
+            slideId,
+            textItem,
+            primitiveItem,
+            index,
+            type,
+        },
+        type: "ADD_ITEM",
+    };
+};
+
 export interface AddItemTextAction {
     type: typeof ADD_ITEM_TEXT;
     payload: string;
 }
-
 
 export interface AddItemPrimitiveAction {
     type: typeof ADD_ITEM_PRIMITIVE;

@@ -1,6 +1,6 @@
 import React from "react";
 import { Menu as TMenu } from "../../../types/types";
-import classes from "./MenuButton.module.css";
+import classes from "../MenuButton/MenuButton.module.css";
 
 type MenuButtonProps = {
     label: string;

@@ -17,10 +17,11 @@ function MyEditor({className}: EditorProps) {
 
     return (
         <div className={`${className} ${styles.myEditor}`}>
-            <span className={styles.presentation_name}>{presentationName}</span>
+            <div className={styles.div_toolbar_slide}>
+                <ToolBar className={styles.toolbar_slide}/>
+            </div>
             <SlideList className={styles.slide_list}/>
             <WorkPlace className={styles.workplace_slide}/>
-            <ToolBar className={styles.toolbar_slide}/>
         </div>
     );
 }
