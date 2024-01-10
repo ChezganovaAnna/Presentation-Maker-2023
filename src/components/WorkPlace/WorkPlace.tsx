@@ -6,11 +6,8 @@ import { useAppSelector } from "../../store/hooks/useRedux";
 import { useDispatch } from 'react-redux';
 import { SET_BACKGROUND } from "../../store/actions/presentationActions";
 
-interface WorkplaceProps {
-    className: string;
-}
 
-const WorkPlace: FC<WorkplaceProps> = ({ className }: WorkplaceProps) => {
+const WorkPlace = () => {
     const dispatch = useDispatch();
     const currentSlideId = useAppSelector((state) => state.presentation.currentSlide);
     const slides = useAppSelector((state) => state.presentation.presentationSlides);

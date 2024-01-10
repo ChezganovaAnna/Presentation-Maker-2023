@@ -49,9 +49,8 @@ export const selectSlide = (slideId: string): SelectSlideAction => ({
     payload: slideId,
 });
 
-export const deleteSlide = (slideId: string): DeleteSlideAction => ({
-    type: "DELETE_SLIDE",
-    payload: slideId,
+export const deleteSlide = (): DeleteSlideAction => ({
+    type: "DELETE_SLIDE"
 });
 
 export const setPresentationName = (name: string): SetPresentationNameAction => ({

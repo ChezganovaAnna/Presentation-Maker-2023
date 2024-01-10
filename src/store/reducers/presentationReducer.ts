@@ -88,7 +88,7 @@ const presentationReducer = (state = initialPresentationState, action: Presentat
         case DELETE_SLIDE:
             return {
                 ...state,
-                presentationSlides: state.presentationSlides.filter(slide => slide.id !== action.payload),
+                presentationSlides: state.presentationSlides.filter(slide => slide.id !== state.currentSlide),
             };
         case ADD_ITEM_TEXT:
             return {

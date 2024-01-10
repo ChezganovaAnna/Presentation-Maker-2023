@@ -18,10 +18,14 @@ function MyEditor({className}: EditorProps) {
     return (
         <div className={`${className} ${styles.myEditor}`}>
             <div className={styles.div_toolbar_slide}>
-                <ToolBar className={styles.toolbar_slide}/>
+                <ToolBar/>
             </div>
-            <SlideList className={styles.slide_list}/>
-            <WorkPlace className={styles.workplace_slide}/>
+            <div className={styles.slide_list}>
+                <SlideList/>
+            </div>
+            <div className={styles.workplace_slide}>
+                <WorkPlace/>
+            </div>
         </div>
     );
 }

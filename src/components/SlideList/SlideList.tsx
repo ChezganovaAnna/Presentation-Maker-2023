@@ -4,11 +4,8 @@ import {Slide as TSlide} from "../../types/types";
 import Slide from "../Slide/Slide";
 import {useAppSelector, usePresentationActions} from "../../store/hooks/useRedux";
 
-type SlideListProps = {
-    className: string;
-};
 
-function SlideList({className}: SlideListProps) {
+function SlideList() {
     const objectStyle: React.CSSProperties = {
         transform: "scale(0.25)",
     };
@@ -17,7 +14,7 @@ function SlideList({className}: SlideListProps) {
     const slides = useAppSelector((state) => state.presentation.presentationSlides);
 
     return (
-        <div className={`${className} ${styles.slider}`}>
+        <div className={styles.slider}>
             <div className={styles.child_slide}>
                 {slides.map((slide: TSlide, index: number) => (
                     <div key={slide.id} className={styles.circle}>
@@ -27,13 +24,13 @@ function SlideList({className}: SlideListProps) {
                             style={objectStyle}
                             onClick={() => presentationActions.selectSlide(slide.id)}
                         >
-                            <Slide
-                                slide={slide}
-                                isSelected={false}
-                                className={styles.slide}
-                            />
-                        </div>
+                        <Slide
+                            slide={slide}
+                            isSelected={false}
+                            className={styles.slide}
+                        />
                     </div>
+                </div>
                 ))}
             </div>
         </div>

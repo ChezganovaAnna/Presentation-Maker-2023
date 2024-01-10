@@ -7,6 +7,7 @@
     background-size: 100% 100%;
     background-repeat: no-repeat;
     height: 100vh;
+
 }
 
 .presentation_name {
@@ -18,8 +19,10 @@
 }
 
 .slide_list {
-    border-radius: 15px;
+    border-radius: 115px;
     display: flex;
+    flex: 1;
+    padding-left: 70px;
 }
 
 .div_toolbar_slide{
@@ -29,13 +32,14 @@
 }
 
 .toolbar_slide {
-    width: 70%;
-    height: 100px;
+    width: 50%;
+    height: 130px;
+    justify-content: flex-end;
 }
+
 .workplace_slide {
-    /* Add the following properties */
-    flex: 1; /* This will make the workplace_slide take up the remaining space */
+    flex: 3;
     display: flex;
-    justify-content: center; /* Align the content of workplace_slide to the center horizontally */
-    align-items: center; /* Align the content of workplace_slide to the center vertically */
+    width: 60%;
+    align-self: center;
 }

@@ -73,7 +73,6 @@ export interface SelectSlideAction {
 
 export interface DeleteSlideAction {
     type: typeof DELETE_SLIDE;
-    payload: string;
 }
 
 export interface SetObjectSelectionAction {

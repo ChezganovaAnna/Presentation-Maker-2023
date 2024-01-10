@@ -11,8 +11,13 @@
 
 .main_slide{
     background: rgba(254, 237, 191, 0.63);
-    border: 4px solid #F0BD7B;
+    border: 1px solid #BDBDBD;
     border-radius: 20px;
-    width: 900px;
+    max-width: 900px;
     height: 70vh;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
 }

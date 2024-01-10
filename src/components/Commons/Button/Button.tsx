@@ -1,19 +1,20 @@
-import {ChangeEventHandler, MouseEventHandler} from "react";
+import React, {ChangeEventHandler, CSSProperties, MouseEventHandler} from "react";
 import classes from "./Button.module.css";
 
 type ButtonProps = {
     text?: string;
     icon?: string;
     onClick?: MouseEventHandler<HTMLButtonElement>;
+    color?: string;
 };
 
 
-function Button({ text, icon, onClick}: ButtonProps) {
-    const isIconButton = !!icon && !text;
-    const isTextButton = !!text && !icon;
-    const classNameTypeButton = isIconButton
+function Button({ text, icon, onClick, color}: ButtonProps) {
+    const hasIconButton = !!icon;
+    const hasTextButton = !!text;
+    const classNameTypeButton = hasIconButton
       ? "button_icon"
-      : isTextButton
+      : hasTextButton
         ? "button_text"
         : "";
 
@@ -94,20 +95,43 @@ function Button({ text, icon, onClick}: ButtonProps) {
     case "change_history":
       iconClass = "zmdi zmdi-book";
       break;
+    case "create_slide":
+      iconClass = "zmdi zmdi-plus-circle-o";
+      break;
+    case "delete_slide":
+      iconClass = "zmdi zmdi-minus-circle-outline";
+      break;
     default:
       break;
   }
+
+
+
+  let colorStyle: undefined | React.CSSProperties = color ? {
+    background: color,
+    height: "40px",
+    width: '130px',
+    borderRadius: '100px',
+    border: "none",
+    transition: "all 0.3s ease",
+    display: "flex",
+    justifyContent: "space-around",
+    cursor: "pointer"
+  } : undefined
 
   return (
       <button
         type="button"
         className={`${classes.button} ${classNameTypeButton}`}
+        style={colorStyle}
         onClick={onClick}
       >
-          {isIconButton && (
+          {hasIconButton && (
             <i className={iconClass}></i>
           )}
-          {isTextButton && <span className={classes.text}>{text}</span>}
+          {hasTextButton && (
+              <span className={classes.text}>{text}</span>
+            )}
       </button>
     );
 }

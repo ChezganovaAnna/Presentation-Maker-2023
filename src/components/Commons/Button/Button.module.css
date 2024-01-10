@@ -9,7 +9,7 @@
     border-radius: 20%;
     transition: all 0.3s ease;
     border: none;
-    color: #583217;
+    color: #ffffff;
     align-items: center;
     cursor: pointer;
 }
@@ -25,6 +25,13 @@
 }
 
 .text {
-    padding: 1px 8px;
-    font: 500 normal 14px/1 Roboto, sans-serif;
+    color: #FFFFFF;
+    text-align: center;
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: 0.1px;
+    padding-right: 10px;
 }

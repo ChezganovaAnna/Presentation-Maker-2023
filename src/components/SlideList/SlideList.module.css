@@ -1,14 +1,16 @@
 .slider {
-  width: 10vw;
-  display: flex;
+  width: 13vw;
   flex-direction: column;
   padding: 10px;
   background: rgba(254, 237, 191, 0.63);
   overflow-y: scroll;
+  border-radius: 15px;
+  display: flex;
+  height: 70vh;
 }
 
 .slider::-webkit-scrollbar {
-  width: 4px;
+  width: 10px;
   border-radius: 8px;
   background-color: #F0BD7B;
 }
@@ -22,22 +24,32 @@
 .child_slide {
   display: flex;
   flex-direction: column;
-  height: 250px;
-
+  gap: 15px;
   border-radius: 20px;
-  border-color: #F0BD7B;
+  border-color: #E1BEE7;
 }
 
 .circle {
   display: flex;
   flex-direction: column;
   height: 240px;
-  background-color: #F0BD7B;
+  background-color: #E1BEE7;
+  padding-bottom: -50px;
 }
 
 .unique_slide {
-  height: 250px;
-  background-color: #FEEDBF;
+  height: 50px;
+  background-color: #E1BEE7;
+  color: #FFFFFF;
+  text-align: center;
+  font-family: Roboto, serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  -webkit-border-radius: 10px;
 }
 
 .packaging {
@@ -47,4 +59,5 @@
   left:-83px;
   position: relative;
   margin-bottom: 5px;
+  background-color: #fff;
 }
